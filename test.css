@@ -1,0 +1,48 @@
+body, html {
+  margin: 0;
+  padding: 0;
+  font-family: "Comic Sans MS", cursive ;
+  height: 100%;
+}
+
+.hero {
+  height: 100vh;
+  background: url('https://www.voyage-maroc.com/cdn/ma-public/oasis_ziz.jpg') no-repeat center center/cover;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+
+.overlay {
+  background: rgba(0, 0, 0, 0.5); /* Légère superposition sombre */
+  color: #fff;
+  text-align: center;
+  padding: 20px;
+  border-radius: 10px;
+}
+
+.title {
+  font-size: 4rem;
+  margin: 0;
+}
+
+.subtitle {
+  font-size: 1.5rem;
+  margin: 10px 0 20px;
+}
+
+.btn {
+  display: inline-block;
+  padding: 10px 20px;
+  font-size: 1rem;
+  color: #fff;
+  background-color: #ff5722;
+  text-decoration: none;
+  border-radius: 5px;
+  transition: background-color 0.3s;
+}
+
+.btn:hover {
+  background-color: #e64a19;
+}
