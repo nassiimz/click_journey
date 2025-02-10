@@ -1,0 +1,109 @@
+@import url(connexionfond.jpeg);
+*{
+    margin: 0;
+    padding:0;
+    box-sizing: border-box;
+    font-family: "Poppins", serif;
+}
+
+body {
+ background-color: red;
+ display: flex;
+ justify-content: center;
+ align-items: center;
+ height : 100vh;
+ background: url(connexionfond.jpeg);
+
+ background-size: cover;
+
+}
+section {
+    background-color: transparent;
+    border: 2px solid rgba(255,255,255,0.2);
+    backdrop-filter: blur(40px);
+    padding: 30px;
+    width: 420px;
+    border-radius: 20px;
+}
+
+section h1{
+    font-size: 30px;
+    text-align: center;
+    color: white;
+    margin-bottom: 20px;
+}
+
+.inputbox {
+    width: 100%;
+    position: relative;
+    margin-bottom: 25px;
+}
+.inputbox input {
+    width:100%;
+    padding :15 px;
+    border-radius : 25px;
+    outline : none;
+    background-color: transparent;
+    border: 2px solid rgba(255,255,255,0.2);
+    color : white;
+    padding-right: 40px;
+
+}
+
+.inputbox input::placeholder {
+color: white;
+}
+
+.inputbox i {
+    position : absolute;
+    transform: translateY(-50%);
+    right : 20PX;
+    top : 50%;
+    color: white;
+
+}
+
+.remember-forgot{
+    display:flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 14px;
+    color: white;
+    margin-bottom: 25px;
+}
+
+.remember-forgot a, .register-link a {
+    color: white;
+    text-decoration: none;
+    transition: 0.5s;
+    font-weight: bold;
+
+}
+.remember-forgot a:hover, .register-link a {
+    text-decoration: underline;
+}
+
+.login-btn {
+    width: 100%;
+    padding : 15px;
+    border-radius: 25px;
+    outline: none;
+    border: 0;
+    font-weight: bold;
+    cursor: pointer;
+    border: 2px solid transparent;
+    transition : 0.5s;
+}
+
+.login-btn:hover {
+    background-color: transparent;
+    border: 2px solid rgba(255,255,255,0.2);
+    color: white;
+}
+
+.register-link {
+    text-align:center;
+    margin-top: 25px;
+    color:white;
+    font-size: 14px;
+}
