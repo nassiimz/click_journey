@@ -1,0 +1,149 @@
+.pres {
+  height: 100vh;
+  background: url('https://www.etapes-marocaines.com/uploads/sites/86/2022/11/porte-du-desert-maroc.jpeg') no-repeat center center/cover;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  position: relative;
+}
+.pres {
+  height: 100vh;
+  background: url('https://www.etapes-marocaines.com/uploads/sites/86/2022/11/porte-du-desert-maroc.jpeg') no-repeat center center/cover;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  position: relative;
+}
+
+/* Effet de flou sur l’image de fond */
+.pres::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: inherit;
+  filter: blur(5px);
+  z-index: -1;
+}
+
+.overlay {
+  background: rgba(0, 0, 0, 0.6);
+  color: white;
+  padding: 40px;
+  border-radius: 15px;
+  max-width: 80%;
+  animation: fadeIn 1.5s ease-in-out;
+}
+
+/* Animation d'apparition */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.title {
+  font-size: 4rem;
+  margin: 0;
+  font-family: 'Poppins', sans-serif;
+}
+
+.subtitle {
+  font-size: 1.8rem;
+  margin: 10px 0 20px;
+  font-weight: 300;
+}
+
+.text {
+  font-size: 1.4rem;
+  margin: 10px 0 20px;
+  font-weight: 200;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .title {
+    font-size: 3rem;
+  }
+  .subtitle, .text {
+    font-size: 1.2rem;
+  }
+  .overlay {
+    padding: 20px;
+    max-width: 90%;
+  }
+}
+/* Effet de flou sur l’image de fond */
+.pres::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: inherit;
+  filter: blur(5px);
+  z-index: -1;
+}
+
+.overlay {
+  background: rgba(0, 0, 0, 0.6);
+  color: white;
+  padding: 40px;
+  border-radius: 15px;
+  max-width: 80%;
+  animation: fadeIn 1.5s ease-in-out;
+}
+
+/* Animation d'apparition */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.title {
+  font-size: 4rem;
+  margin: 0;
+  font-family: 'Poppins', sans-serif;
+}
+
+.subtitle {
+  font-size: 1.8rem;
+  margin: 10px 0 20px;
+  font-weight: 300;
+}
+
+.text {
+  font-size: 1.4rem;
+  margin: 10px 0 20px;
+  font-weight: 200;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .title {
+    font-size: 3rem;
+  }
+  .subtitle, .text {
+    font-size: 1.2rem;
+  }
+  .overlay {
+    padding: 20px;
+    max-width: 90%;
+  }
+}
