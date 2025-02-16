@@ -206,15 +206,3 @@ h1 {
     cursor: pointer;
 }
 
-@media (max-width: 768px) {
-    .container {
-        margin: 80px auto 20px;
-        padding: 20px;
-    }
-    .header {
-        font-size: 1.8rem; 
-    }
-    .jour {
-        width: 100%;
-    }
-}
