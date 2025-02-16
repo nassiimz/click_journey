@@ -71,5 +71,5 @@ Les couleurs utilisées :
 
 22. #3E2723 - Brun Terreux
 
--- 
+---
 Ajout de media sur tous les fichiers css pour adapter le site a tous les navigateurs et tous les appareils.
