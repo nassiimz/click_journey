@@ -84,7 +84,7 @@ body, html {
 
 .fond-titre {
   background: rgba(0, 0, 0, 0.5);
-  color: #F5D29C; /* Beige clair */
+  color: #F5D29C; 
   padding: 20px;
   border-radius: 10px;
 }
@@ -92,13 +92,13 @@ body, html {
 .titre {
   font-size: 4rem;
   margin: 0;
-  color: #E8871E; /* Orange vif */
+  color: #E8871E;
 }
 
 .sous-titre {
   font-size: 1.5rem;
   margin: 10px 0 20px;
-  color: #F5D29C; /* Beige clair */
+  color: #F5D29C; 
 }
 
 .btn {
@@ -106,21 +106,21 @@ body, html {
   padding: 10px 20px;
   font-size: 1rem;
   color: white;
-  background-color: #E8871E; /* Orange vif */
+  background-color: #E8871E; 
   text-decoration: none;
   border-radius: 5px;
   transition: 0.3s;
 }
 
 .btn:hover {
-  background-color: #5C3820; /* Marron foncé */
+  background-color: #5C3820; 
   transform: scale(1.1);
 }
 
 /* Pied de page */
 footer {
-  background: rgba(43, 26, 14, 0.9); /* Marron foncé */
-  color: #F5D29C; /* Beige clair */
+  background: rgba(43, 26, 14, 0.9); 
+  color: #F5D29C; 
   text-align: center;
   padding: 20px 0;
   font-size: 14px;
@@ -144,25 +144,25 @@ footer {
 }
 
 .footer-container ul li a {
-  color: #E8871E; /* Orange vif */
+  color: #E8871E; 
   text-decoration: none;
   font-weight: bold;
 }
 
 .footer-container ul li a:hover {
   text-decoration: underline;
-  color: #F5D29C; /* Beige clair */
+  color: #F5D29C; 
 }
 
 .logoRA {
-  width: 25px; /* Ajustez la taille selon vos besoins */
+  width: 25px; 
   height: auto;
 }
 
 .user-menu {
   position: absolute;
   top: 10px;
-  right: 20px; /* Ajuste selon le placement souhaité */
+  right: 20px; 
 }
 
 .user-icon {
