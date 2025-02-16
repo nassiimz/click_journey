@@ -1,0 +1,109 @@
+
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background: url(fond-admin2.webp) ;
+    text-align: center;
+}
+
+.admin {
+    width: 80%;
+    margin: 40px auto;
+    background: rgb(223, 207, 149);
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}    
+
+h1 {
+    color: #572a13;
+    font-size: 24px;
+    margin-bottom: 20px;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+th, td {
+    padding: 12px;
+    border: 1px solid #ddd;
+    text-align: center;
+}
+
+th {
+    background: #3E2723;
+    color: white;
+}
+
+.etat {
+    font-weight: bold;
+    padding: 5px 10px;
+    border-radius: 5px;
+}
+
+.etat:contains("Normal") {
+    background: #ccc;
+}
+
+.etat:contains("VIP") {
+    background: gold;
+    color: black;
+}
+
+.etat:contains("Banni") {
+    background: red;
+    color: white;
+}
+
+button {
+    padding: 8px 12px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 14px;
+    margin: 2px;
+}
+
+.vip {
+    background: gold;
+    color: black;
+}
+
+.normal {
+    background: gray;
+    color: white;
+}
+
+.ban {
+    background: red;
+    color: white;
+}
+
+.supp {
+    background: black;
+    color: white;
+}
+
+button:hover {
+    opacity: 0.8;
+}
+
+.btn1 {
+    display: inline-block;
+    margin-top: 20px;
+    padding: 12px 20px;
+    font-size: 1rem;
+    color: white;
+    background: #8D6E63;
+    border-radius: 8px;
+    text-decoration: none;
+    transition: background 0.3s;
+}
+
+.btn1:hover {
+    background: #6D4C41;
+}

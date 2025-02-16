@@ -1,0 +1,195 @@
+/* Styles généraux */
+body {
+    font-family: 'Poppins', sans-serif;
+    margin: 0;
+    padding: 0;
+    background: linear-gradient(to bottom, #ab8572, #ffe4a4);
+    color: #3E2723;
+    text-align: center;
+}
+
+/* En-tête */
+.header {
+    padding: 20px 0;
+    font-size: 2.5rem;
+    font-weight: bold;
+    background: rgba(255, 225, 205, 0.9);
+    width: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+}
+
+/* Conteneur principal */
+.container {
+    max-width: 900px;
+    margin: 120px auto 20px;
+    background: rgba(255, 248, 220, 0.95);
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    text-align: left;
+    border: 2px solid #8D6E63;
+}
+
+/* Image du trek */
+.trek-image img {
+    width: 30%;
+    max-width: 300px;
+    border-radius: 8px;
+    height: auto;
+    display: block;
+    margin: 20px auto;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+/* Titres */
+h1, h2 {
+    color: #4E342E;
+    font-weight: bold;
+}
+
+/* Description */
+.trek-description {
+    font-size: 1.2rem;
+    color: #6D4C41;
+    margin-top: 10px;
+    line-height: 1.6;
+}
+
+/* Tableau des tarifs */
+.tarifs table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 10px;
+}
+
+.tarifs th, .tarifs td {
+    border: 1px solid #8B4513;
+    padding: 12px;
+    text-align: center;
+}
+
+.tarifs th {
+    background-color: #8B4513;
+    color: white;
+    font-size: 1.2rem;
+}
+
+.tarifs td {
+    background: rgba(255, 225, 205, 0.8);
+    font-size: 1.1rem;
+}
+
+/* Bouton de retour */
+.btn {
+    display: inline-block;
+    margin-top: 20px;
+    padding: 12px 20px;
+    font-size: 1rem;
+    color: white;
+    background: #8D6E63;
+    border-radius: 8px;
+    text-decoration: none;
+    transition: background 0.3s;
+}
+
+.btn:hover {
+    background: #6D4C41;
+}
+
+
+.back-button:hover {
+    background: #6D4C41;
+}
+
+.date-selection {
+    text-align: center;
+    margin-top: 20px;
+}
+
+.date-selection label {
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: #4E342E;
+}
+
+.date-selection input {
+    margin-left: 10px;
+    padding: 10px;
+    font-size: 1rem;
+    border: 2px solid #8D6E63;
+    border-radius: 5px;
+    background: rgba(255, 248, 220, 0.8);
+    cursor: pointer;
+}
+
+.date-selection input:hover {
+    background: rgba(255, 248, 220, 1);
+}
+
+/* Option billet d'avion */
+.billet-avion {
+    text-align: center;
+    margin-top: 20px;
+    padding: 15px;
+    background: rgba(255, 248, 220, 0.9);
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+    max-width: 500px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.billet-avion h2 {
+    font-size: 1.3rem;
+    color: #4E342E;
+}
+
+.billet-avion label {
+    display: block;
+    font-size: 1.1rem;
+    margin-top: 10px;
+    cursor: pointer;
+}
+
+.billet-avion input {
+    transform: scale(1.2);
+    margin-right: 10px;
+    cursor: pointer;
+}
+.validation {
+    display: block;
+    width: max-content;
+    margin: 20px auto;
+    padding: 14px 25px;
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: white;
+    background: #8D6E63; /* Marron sable chaud */
+    border-radius: 8px;
+    text-decoration: none;
+    text-align: center;
+    transition: background 0.3s ease, transform 0.2s ease;
+    box-shadow: 3px 5px 8px rgba(0, 0, 0, 0.2);
+}
+
+.validation:hover {
+    background: #6D4C41; /* Teinte plus foncée au survol */
+    transform: scale(1.05);
+}
+
+.validation:active {
+    background: #5D4037;
+    transform: scale(0.98);
+}
+
+
+/* Responsive */
+@media (max-width: 768px) {
+    .trek-image img {
+        width: 80%;
+        max-width: 90%;
+    }
+}

@@ -1,0 +1,92 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background: url(fondaventure.webp) no-repeat center center/cover;
+    text-align: center;
+}
+
+.header {
+    padding: 20px 0;
+    font-size: 2.5rem;
+    font-weight: bold;
+    color: #704214;
+    text-align: center;
+    background: rgba(255, 255, 255, 0.6);
+    width: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+.treks {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    padding: 120px 20px 40px;
+}
+
+.trek-card {
+    background: rgba(0, 0, 0, 0.5);
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    text-align: center;
+    width: 300px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    text-decoration: none; /* Supprime le soulignement du lien */
+    color: #E8871E; /* Garde la couleur du texte */
+}
+
+.trek-card:hover {
+    transform: scale(1.05);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+}
+
+
+.trek-img {
+    width: 100%;
+    border-radius: 10px;
+}
+
+.flag-img {
+    width: 30px;
+    height: auto;
+    margin-top: 10px;
+}
+
+.titre-trek {
+    font-size: 1.5rem;
+    margin: 10px 0;
+}
+
+.trek-description {
+    font-size: 1rem;
+    color: #F5D29C;
+}
+
+
+
+.btn1 {
+    display: inline-block;
+    margin-top: 20px;
+    padding: 12px 20px;
+    font-size: 1rem;
+    color: white;
+    background: #8D6E63;
+    border-radius: 8px;
+    text-decoration: none;
+    transition: background 0.3s;
+}
+
+.btn1:hover {
+    background: #6D4C41;
+}
+
+
+@media (max-width: 768px) {
+    .treks {
+        flex-direction: column;
+        align-items: center;
+    }
+}

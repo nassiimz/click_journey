@@ -1,0 +1,84 @@
+/* Styles de la page profil */
+body {
+    font-family: Arial, sans-serif;
+    background: url(fond-profil.webp) ;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    flex-direction: column;
+}
+
+/* Conteneur principal */
+.profile-container {
+    width: 100%;
+    max-width: 400px;
+}
+
+/* Carte de profil */
+.profile-card {
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    text-align: center;
+}
+
+
+h2 {
+    margin: 10px 0 5px;
+    color: #333;
+}
+
+.status {
+    font-size: 14px;
+    color: #777;
+}
+
+/* Infos utilisateur */
+.profile-info p {
+    margin: 8px 0;
+    font-size: 16px;
+}
+
+
+.btn {
+    background: #ff9800;
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    margin: 5px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+.btn:hover {
+    background: #e68900;
+}
+
+.logout {
+    background: #E8871E;
+}
+
+.logout:hover {
+    background: #6d2e00;
+}
+
+.btn1 {
+    display: inline-block;
+    margin-top: 20px;
+    padding: 12px 20px;
+    font-size: 1rem;
+    color: white;
+    background: #8D6E63;
+    border-radius: 8px;
+    text-decoration: none;
+    transition: background 0.3s;
+}
+
+.btn1:hover {
+    background: #6D4C41;
+}
+
