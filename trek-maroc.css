@@ -1,4 +1,4 @@
-/* Styles généraux */
+
 body {
     font-family: 'Poppins', sans-serif;
     margin: 0;
@@ -8,7 +8,7 @@ body {
     text-align: center;
 }
 
-/* En-tête */
+
 .header {
     padding: 20px 0;
     font-size: 2.5rem;
@@ -21,7 +21,7 @@ body {
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
 }
 
-/* Conteneur principal */
+
 .container {
     max-width: 900px;
     margin: 120px auto 20px;
@@ -33,7 +33,7 @@ body {
     border: 2px solid #8D6E63;
 }
 
-/* Image du trek */
+
 .trek-image img {
     width: 30%;
     max-width: 300px;
@@ -44,13 +44,13 @@ body {
     box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
 }
 
-/* Titres */
+
 h1, h2 {
     color: #4E342E;
     font-weight: bold;
 }
 
-/* Description */
+
 .trek-description {
     font-size: 1.2rem;
     color: #6D4C41;
@@ -58,7 +58,7 @@ h1, h2 {
     line-height: 1.6;
 }
 
-/* Tableau des tarifs */
+
 .tarifs table {
     width: 100%;
     border-collapse: collapse;
@@ -82,7 +82,7 @@ h1, h2 {
     font-size: 1.1rem;
 }
 
-/* Bouton de retour */
+
 .btn {
     display: inline-block;
     margin-top: 20px;
@@ -129,7 +129,6 @@ h1, h2 {
     background: rgba(255, 248, 220, 1);
 }
 
-/* Option billet d'avion */
 .billet-avion {
     text-align: center;
     margin-top: 20px;
@@ -167,7 +166,7 @@ h1, h2 {
     font-size: 1.2rem;
     font-weight: bold;
     color: white;
-    background: #8D6E63; /* Marron sable chaud */
+    background: #8D6E63; 
     border-radius: 8px;
     text-decoration: none;
     text-align: center;
@@ -176,7 +175,7 @@ h1, h2 {
 }
 
 .validation:hover {
-    background: #6D4C41; /* Teinte plus foncée au survol */
+    background: #6D4C41; 
     transform: scale(1.05);
 }
 
@@ -186,7 +185,6 @@ h1, h2 {
 }
 
 
-/* Responsive */
 @media (max-width: 768px) {
     .trek-image img {
         width: 80%;
