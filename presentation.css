@@ -5,12 +5,12 @@ body {
   flex-direction: column;
   justify-content: space-between;
   align-items: center;
-  min-height: 100vh; /* Permet au contenu de prendre toute la hauteur de l'écran */
+  min-height: 100vh; 
   margin: 0;
 }
 
 .pres {
-  flex: 1; /* Permet au contenu de prendre l'espace restant */
+  flex: 1; 
   display: flex;
   justify-content: center;
   align-items: center;
@@ -104,17 +104,17 @@ body {
   background: #6D4C41;
 }
 
-/* Footer bien placé en bas sans superposition */
+
 .footer-container {
   width: 100%;
   text-align: center;
 
   position: relative;
-  margin-top: auto; /* Pousse le footer en bas si le contenu est court */
+  margin-top: auto; 
 }
 
 .contacts {
-  max-width: 600px; /* Réduit la taille */
+  max-width: 600px; 
   margin: 10px auto;
   padding: 15px;
   border-radius: 12px;
@@ -124,14 +124,14 @@ body {
 }
 
 .contacts h2 {
-  font-size: 1.3rem; /* Plus petit */
+  font-size: 1.3rem; 
   color: #4E342E;
   margin-bottom: 10px;
   text-transform: uppercase;
 }
 
 .contact-info, .contact-details {
-  font-size: 0.9rem; /* Plus petit */
+  font-size: 0.9rem; 
   color: #6D4C41;
   line-height: 1.4;
   text-align: left;
@@ -148,7 +148,6 @@ body {
   text-decoration: underline;
 }
 
-/* Responsive Design */
 @media (max-width: 768px) {
   .titre {
     font-size: 2.8rem;
