@@ -25,6 +25,3 @@ Rajjel Agency est une agence spécialisée dans l'organisation de treks à trave
 
 ---
 
-## Lancement du site
--Télécharger le zip de cette page github4
--extraire les fichier en suite et ouvrir le fichier "accueil" avec un navigateur.
