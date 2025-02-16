@@ -34,8 +34,8 @@ body {
     text-align: center;
     width: 300px;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
-    text-decoration: none; /* Supprime le soulignement du lien */
-    color: #E8871E; /* Garde la couleur du texte */
+    text-decoration: none; 
+    color: #E8871E;
 }
 
 .trek-card:hover {
