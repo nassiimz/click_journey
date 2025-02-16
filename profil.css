@@ -1,4 +1,4 @@
-/* Styles de la page profil */
+
 body {
     font-family: Arial, sans-serif;
     background: url(fond-profil.webp) ;
@@ -10,13 +10,12 @@ body {
     flex-direction: column;
 }
 
-/* Conteneur principal */
 .profile-container {
     width: 100%;
     max-width: 400px;
 }
 
-/* Carte de profil */
+
 .profile-card {
     background: white;
     padding: 20px;
@@ -36,7 +35,7 @@ h2 {
     color: #777;
 }
 
-/* Infos utilisateur */
+
 .profile-info p {
     margin: 8px 0;
     font-size: 16px;
