@@ -69,4 +69,7 @@ Les couleurs utilisées :
 
 21. #3e4e2c - Vert Profond 
 
-22. #3E2723 - Brun Terreux 
+22. #3E2723 - Brun Terreux
+
+-- 
+Ajout de media sur tous les fichiers css pour adapter le site a tous les navigateurs et tous les appareils.
