@@ -84,9 +84,3 @@ body {
 }
 
 
-@media (max-width: 768px) {
-    .treks {
-        flex-direction: column;
-        align-items: center;
-    }
-}
