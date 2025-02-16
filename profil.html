@@ -5,18 +5,27 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Profil Utilisateur</title>
     <link rel="stylesheet" href="profil.css">
+    <script src="https://kit.fontawesome.com/a4f4cc5542.js" crossorigin="anonymous"></script>
 </head>
 <body>
 
     <div class="profile-container">
         <div class="profile-card">
             <div class="profile-header">
-                <h2>Aboubakar Diatta</h2>
+                <div class="pseudo">
+                <h2>  <input placeholder="Aboubakar Diatta" ><i class="fa-solid fa-pen-to-square"></i></h2>
+            </div>
                 <p class="status">Statut : Membre VIP</p>
             </div>
 
             <div class="profile-info">
-                <p><strong>Email :</strong> abou.diatta@gmail.com</p>
+               <div class="email">
+                <p><strong>Email :</strong> <input type="text" placeholder="abou.diatta@gmail.com" required> <i class="fa-solid fa-envelope"></i></p>
+                
+            </div>
+            <div class="mdp">
+            <p><strong>mot de passe : <input type="text" placeholder="nouveau mot de passe"> <i class="fa-solid fa-lock"></i></strong></p>
+        </div>
                 <p><strong>Date d'inscription :</strong> 12 janvier 2024</p>
             </div>
 
