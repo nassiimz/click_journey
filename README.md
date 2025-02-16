@@ -20,7 +20,7 @@ Rajjel Agency est une agence spécialisée dans l'organisation de treks à trave
     * En haut à droite 
 * Gestion des utilisateurs (page administrateur)
    * Dans le footer tout en bas  
- *Sélection des options (billet d'avion, hébergement...)
+* Sélection des options (billet d'avion, hébergement...)
   * Disponible après le choix du circuit   
 
 ---
