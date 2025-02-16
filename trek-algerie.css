@@ -166,7 +166,7 @@ h1 {
     font-size: 1.2rem;
     font-weight: bold;
     color: white;
-    background: #65ab5d; /* Marron sable chaud */
+    background: #65ab5d;
     border-radius: 8px;
     text-decoration: none;
     text-align: center;
@@ -175,7 +175,7 @@ h1 {
 }
 
 .validation:hover {
-    background: #78d347; /* Teinte plus foncée au survol */
+    background: #78d347;
     transform: scale(1.05);
 }
 
