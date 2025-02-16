@@ -13,15 +13,15 @@ Rajjel Agency est une agence spécialisée dans l'organisation de treks à trave
 ##  Fonctionnalités du site
 
 *  Présentation de l'agence et de ses treks:
-    **En cliquant sur "rajjel agency" en haut à gauche  
+    * En cliquant sur "rajjel agency" en haut à gauche  
 * Affichage des différents circuits (Maroc, Tunisie, Algérie)
-   ** En cliquant sur le bouton principal  
+   * En cliquant sur le bouton principal  
 * Système d'inscription et de connexion
-    **En haut à droite 
+    * En haut à droite 
 * Gestion des utilisateurs (page administrateur)
-   ** Dans le footer tout en bas  
+   * Dans le footer tout en bas  
  *Sélection des options (billet d'avion, hébergement...)
-   ** Disponible après le choix du circuit   
+  * Disponible après le choix du circuit   
 
 ---
 
