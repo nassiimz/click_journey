@@ -1,29 +1,25 @@
-*{
+* {
     font-family: "Poppins", sans-serif;
 }
+
 body {
     font-family: Arial, sans-serif;
-    background: url(fond-profil.webp) ;
+    background: url(fond-profil.webp);
     display: flex;
     justify-content: center;
     align-items: center;
     height: 100vh;
     margin: 0;
     flex-direction: column;
-  
-    
-
 }
 
 .profile-container {
     backdrop-filter: blur(50px);
     width: 100%;
     max-width: 400px;
-    box-shadow: 0 0 10px rgba(0,0,0, 10);
+    box-shadow: 0 0 10px rgba(0, 0, 0, 10);
     border-radius: 5px;
-
 }
-
 
 .profile-card {
     background: white;
@@ -32,7 +28,6 @@ body {
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
     text-align: center;
 }
-
 
 h2 {
     margin: 10px 0 5px;
@@ -44,12 +39,10 @@ h2 {
     color: goldenrod;
 }
 
-
 .profile-info p {
     margin: 8px 0;
     font-size: 16px;
 }
-
 
 .btn {
     background: #ff9800;
@@ -89,12 +82,15 @@ h2 {
 .btn1:hover {
     background: #6D4C41;
 }
-.email  ::placeholder {
-    color : black ;
+
+/* Styles pour les placeholders */
+.email ::placeholder {
+    color: black;
 }
+
 .pseudo ::placeholder {
-color: #333;
-font-size: 15px;
-text-align : center;
-padding: 15px;
+    color: #333;
+    font-size: 15px;
+    text-align: center;
+    padding: 15px;
 }

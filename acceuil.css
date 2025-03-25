@@ -1,5 +1,5 @@
-
-body, html {
+body,
+html {
   margin: 0;
   padding: 0;
   font-family: 'Poppins', sans-serif;
@@ -16,7 +16,7 @@ body, html {
   width: 100%;
   padding: 15px 5%;
   box-sizing: border-box;
-  background: rgba(43, 26, 14, 0.9); 
+  background: rgba(43, 26, 14, 0.9);
   position: fixed;
   top: 0;
   left: 0;
@@ -24,7 +24,7 @@ body, html {
 }
 
 .logo {
-  color: #F5D29C; 
+  color: #F5D29C;
   font-size: 24px;
   font-weight: bold;
   text-decoration: none;
@@ -32,7 +32,7 @@ body, html {
 }
 
 .logo:hover {
-  color: #E8871E; 
+  color: #E8871E;
 }
 
 .lien-navigation {
@@ -45,13 +45,13 @@ body, html {
 
 .lien-navigation a {
   text-decoration: none;
-  color: #F5D29C; 
+  color: #F5D29C;
   font-size: 18px;
   transition: 0.3s;
 }
 
 .lien-navigation a:hover {
-  color: #E8871E; 
+  color: #E8871E;
 }
 
 .inscription {
@@ -61,20 +61,20 @@ body, html {
   padding: 10px 20px;
   font-size: 1rem;
   color: white;
-  background-color: #8B572A; 
+  background-color: #8B572A;
   text-decoration: none;
   border-radius: 5px;
   transition: 0.3s;
 }
 
 .inscription:hover {
-  background-color: #5C3820; 
+  background-color: #5C3820;
   transform: scale(1.1);
 }
 
 .fond {
   height: 100vh;
-  
+
   display: flex;
   justify-content: center;
   align-items: center;
@@ -84,7 +84,7 @@ body, html {
 
 .fond-titre {
   background: rgba(0, 0, 0, 0.5);
-  color: #F5D29C; 
+  color: #F5D29C;
   padding: 20px;
   border-radius: 10px;
 }
@@ -98,7 +98,7 @@ body, html {
 .sous-titre {
   font-size: 1.5rem;
   margin: 10px 0 20px;
-  color: #F5D29C; 
+  color: #F5D29C;
 }
 
 .btn {
@@ -106,20 +106,20 @@ body, html {
   padding: 10px 20px;
   font-size: 1rem;
   color: white;
-  background-color: #E8871E; 
+  background-color: #E8871E;
   text-decoration: none;
   border-radius: 5px;
   transition: 0.3s;
 }
 
 .btn:hover {
-  background-color: #5C3820; 
+  background-color: #5C3820;
   transform: scale(1.1);
 }
 
 footer {
-  background: rgba(43, 26, 14, 0.9); 
-  color: #F5D29C; 
+  background: rgba(43, 26, 14, 0.9);
+  color: #F5D29C;
   text-align: center;
   padding: 20px 0;
   font-size: 14px;
@@ -143,25 +143,25 @@ footer {
 }
 
 .footer-container ul li a {
-  color: #E8871E; 
+  color: #E8871E;
   text-decoration: none;
   font-weight: bold;
 }
 
 .footer-container ul li a:hover {
   text-decoration: underline;
-  color: #F5D29C; 
+  color: #F5D29C;
 }
 
 .logoRA {
-  width: 25px; 
+  width: 25px;
   height: auto;
 }
 
 .user-menu {
   position: absolute;
   top: 10px;
-  right: 20px; 
+  right: 20px;
 }
 
 .user-icon {
@@ -174,17 +174,41 @@ footer {
 
 .input {
   display: block;
-  margin: 0 auto; 
-  width: 300px; 
+  margin: 0 auto;
+  width: 300px;
   padding: 10px;
   font-size: 16px;
-  border: 2px solid #8D6E63; 
-  border-radius: 25px; 
+  border: 2px solid #8D6E63;
+  border-radius: 25px;
   outline: none;
-  text-align: center; 
-  background: rgba(255, 250, 240, 0.9); 
+  text-align: center;
+  background: rgba(255, 250, 240, 0.9);
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
 
+.welcome-message {
+  font-size: 24px;
+  font-weight: bold;
+  color: #333;
+  background: rgba(255, 255, 255, 0.8);
+  padding: 15px 20px;
+  border-radius: 10px;
+  display: inline-block;
+  margin-top: 20px;
+}
 
+.logout-link {
+  display: inline-block;
+  margin-top: 10px;
+  font-size: 18px;
+  color: #8b0000;
+  text-decoration: none;
+  font-weight: bold;
+  transition: color 0.3s ease-in-out;
+}
+
+.logout-link:hover {
+  color: #ff4500;
+  text-decoration: underline;
+}
