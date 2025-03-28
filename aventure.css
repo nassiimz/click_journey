@@ -1,86 +1,172 @@
-body {
-    font-family: Arial, sans-serif;
+:root {
+    --couleur-primaire: #E67E22;
+    --couleur-secondaire: #D35400;
+    --couleur-texte: #FFF;
+    --couleur-texte-fonce: #2C3E50;
+    --couleur-fond: #1A1A1A;
+    --couleur-card: rgba(40, 40, 40, 0.9);
+}
+
+* {
     margin: 0;
     padding: 0;
-    background: url(fondaventure.webp) no-repeat center center/cover;
-    text-align: center;
+    box-sizing: border-box;
 }
 
-.header {
-    padding: 20px 0;
-    font-size: 2.5rem;
-    font-weight: bold;
-    color: #704214;
-    text-align: center;
-    background: rgba(255, 255, 255, 0.6);
-    width: 100%;
-    position: absolute;
-    top: 0;
-    left: 0;
+body {
+    font-family: 'Montserrat', sans-serif;
+    background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), 
+                url('https://images.unsplash.com/photo-1509316785289-025f5b846b35?ixlib=rb-1.2.1&auto=format&fit=crop&w=1920&q=80') no-repeat center center fixed;
+    background-size: cover;
+    color: var(--couleur-texte);
+    min-height: 100vh;
+    line-height: 1.6;
 }
 
-.treks {
-    display: flex;
-    justify-content: center;
-    gap: 20px;
-    padding: 120px 20px 40px;
+header {
+    text-align: center;
+    padding: 100px 20px 50px;
+}
+
+.titre-principal {
+    font-family: 'Playfair Display', serif;
+    font-size: 3.5rem;
+    color: var(--couleur-primaire);
+    margin-bottom: 15px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    letter-spacing: 1px;
+}
+
+.sous-titre {
+    font-size: 1.2rem;
+    max-width: 700px;
+    margin: 0 auto;
+    color: rgba(255, 255, 255, 0.9);
+}
+
+.treks-container {
+    padding: 0 20px 60px;
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+.treks-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 30px;
+    padding: 20px;
 }
 
 .trek-card {
-    background: rgba(0, 0, 0, 0.5);
-    padding: 20px;
-    border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-    text-align: center;
-    width: 300px;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-    text-decoration: none; 
-    color: #E8871E;
+    background: var(--couleur-card);
+    border-radius: 12px;
+    overflow: hidden;
+    transition: all 0.3s ease;
+    text-decoration: none;
+    color: var(--couleur-texte);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+    display: flex;
+    flex-direction: column;
+    height: 100%;
 }
 
 .trek-card:hover {
-    transform: scale(1.05);
-    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+    transform: translateY(-10px);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.5);
 }
 
-
-.trek-img {
-    width: 100%;
-    border-radius: 10px;
+.card-image {
+    height: 200px;
+    background-size: cover;
+    background-position: center;
+    position: relative;
 }
 
 .flag-img {
-    width: 30px;
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    width: 40px;
     height: auto;
-    margin-top: 10px;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
 }
 
-.titre-trek {
+.card-content {
+    padding: 20px;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.card-content h2 {
+    font-family: 'Playfair Display', serif;
+    color: var(--couleur-primaire);
+    margin-bottom: 15px;
     font-size: 1.5rem;
-    margin: 10px 0;
 }
 
-.trek-description {
-    font-size: 1rem;
-    color: #F5D29C;
+.card-content p {
+    margin-bottom: 20px;
+    color: rgba(255, 255, 255, 0.8);
+    flex-grow: 1;
 }
 
-
-
-.btn1 {
+.btn-details {
     display: inline-block;
-    margin-top: 20px;
-    padding: 12px 20px;
-    font-size: 1rem;
+    padding: 10px 20px;
+    background: var(--couleur-primaire);
     color: white;
-    background: #8D6E63;
-    border-radius: 8px;
+    border-radius: 5px;
+    text-align: center;
+    transition: all 0.3s;
+    font-weight: 600;
+    align-self: flex-start;
+}
+
+.trek-card:hover .btn-details {
+    background: var(--couleur-secondaire);
+}
+
+footer {
+    text-align: center;
+    padding: 30px 20px;
+    background: rgba(0, 0, 0, 0.5);
+}
+
+.btn-retour {
+    display: inline-block;
+    padding: 12px 30px;
+    background: transparent;
+    color: var(--couleur-primaire);
+    border: 2px solid var(--couleur-primaire);
+    border-radius: 5px;
     text-decoration: none;
-    transition: background 0.3s;
+    font-weight: 600;
+    transition: all 0.3s;
+    margin-bottom: 20px;
 }
 
-.btn1:hover {
-    background: #6D4C41;
+.btn-retour:hover {
+    background: var(--couleur-primaire);
+    color: var(--couleur-texte-fonce);
 }
 
+.copyright {
+    color: rgba(255, 255, 255, 0.6);
+    font-size: 0.9rem;
+}
 
+@media (max-width: 768px) {
+    .titre-principal {
+        font-size: 2.5rem;
+    }
+    
+    .sous-titre {
+        font-size: 1rem;
+    }
+    
+    .treks-grid {
+        grid-template-columns: 1fr;
+    }
+}
