@@ -3,34 +3,68 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Présentation des Treks</title>
+    <title>Treks Sahariens - Aventure Désertique</title>
     <link rel="stylesheet" href="aventure.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
 </head>
 <body>
-    <h1 class="titre-principal">Découvrez Nos Treks</h1>
-    <section class="treks">
-        <a></a>
-        <a href="trek-maroc.html" class="trek-card">
-            <img src="trek-maroc.jpg" alt="Trek dans le Sahara marocain" class="trek-img">
-            <img src="drapeau-maroc.jpg" alt="Maroc" class="flag-img">
-            <h2 class="titre-trek">Trek dans le Sahara marocain</h2>
-            <p class="trek-description">Découvrez l'immensité des dunes dorées et ressentez la magie du désert en marchant sur ses crêtes ondulées.</p>
-        </a>
-        
-        <a href="trek-algerie.html" class="trek-card">
-            <img src="trek-algerie.jpg" alt="Trek dans les dunes algériennes" class="trek-img">
-            <img src="drapeau-algerie.jpg" alt="Algerie" class="flag-img">
-            <h2 class="titre-trek">Trek dans les dunes algériennes</h2>
-            <p class="trek-description">Vivez une expérience unique sous un ciel étoilé et laissez-vous guider par la lumière des étoiles et la fraîcheur du désert.</p>
-        </a>
-        
-        <a href="trek-tunisie.html" class="trek-card">
-            <img src="tunisie-trek.jpg" alt="Trek à la découverte du désert tunisien" class="trek-img">
-            <img src="drapeau-tunisie.jpg" alt="Tunisie" class="flag-img">
-            <h2 class="titre-trek">Trek à la découverte du désert tunisien</h2>
-            <p class="trek-description">Parcourez les vastes plaines désertiques et trouvez refuge dans une oasis luxuriante, un véritable havre de paix.</p>
-        </a>
-    </section>
-    <a href="acceuil1.html" class="btn1">Retour à l'accueil</a>
+    <header>
+        <h1 class="titre-principal">L'Appel du Désert</h1>
+        <p class="sous-titre">Découvrez nos treks exceptionnels à travers le Sahara</p>
+    </header>
+
+    <main class="treks-container">
+        <div class="treks-grid">
+            <a href="trek-maroc.html" class="trek-card">
+                <div class="card-image" style="background-image: url('https://images.unsplash.com/photo-1518630382440-eba68df79c1e?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80');">
+                    <img src="https://flagcdn.com/w80/ma.png" alt="Drapeau Maroc" class="flag-img">
+                </div>
+                <div class="card-content">
+                    <h2>Trek dans le Sahara marocain</h2>
+                    <p>Découvrez l'immensité des dunes dorées de Merzouga et ressentez la magie du désert en marchant sur ses crêtes ondulées.</p>
+                    <span class="btn-details">Voir le trek</span>
+                </div>
+            </a>
+
+            <a href="trek-algerie.html" class="trek-card">
+                <div class="card-image" style="background-image: url('https://images.unsplash.com/photo-1587854692152-cbe660dbde88?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80');">
+                    <img src="https://flagcdn.com/w80/dz.png" alt="Drapeau Algérie" class="flag-img">
+                </div>
+                <div class="card-content">
+                    <h2>Trek dans le Tassili n'Ajjer</h2>
+                    <p>Explorez les paysages lunaires du Tassili et ses célèbres peintures rupestres datant de millénaires.</p>
+                    <span class="btn-details">Voir le trek</span>
+                </div>
+            </a>
+
+            <a href="trek-tunisie.html" class="trek-card">
+                <div class="card-image" style="background-image: url('https://images.unsplash.com/photo-1570303345338-e1f0ed1b4a9d?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80');">
+                    <img src="https://flagcdn.com/w80/tn.png" alt="Drapeau Tunisie" class="flag-img">
+                </div>
+                <div class="card-content">
+                    <h2>Désert de Douz</h2>
+                    <p>Parcourez les vastes plaines désertiques et trouvez refuge dans une oasis luxuriante, un véritable havre de paix.</p>
+                    <span class="btn-details">Voir le trek</span>
+                </div>
+            </a>
+
+            <a href="trek-mauritanie.html" class="trek-card">
+                <div class="card-image" style="background-image: url('https://images.unsplash.com/photo-1582545271216-4a9b0f4a9b0c?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80');">
+                    <img src="https://flagcdn.com/w80/mr.png" alt="Drapeau Mauritanie" class="flag-img">
+                </div>
+                <div class="card-content">
+                    <h2>Dunes de l'Adrar</h2>
+                    <p>Affrontez les immenses dunes de l'Adrar et découvrez les anciennes villes caravanières de Chinguetti et Ouadane.</p>
+                    <span class="btn-details">Voir le trek</span>
+                </div>
+            </a>
+        </div>
+    </main>
+
+    <footer>
+        <a href="acceuil1.html" class="btn-retour">Retour à l'accueil</a>
+        <p class="copyright">© 2023 Treks Sahariens - Tous droits réservés</p>
+    </footer>
 </body>
+</html>
 </html>
