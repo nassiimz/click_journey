@@ -1,214 +1,195 @@
-body,
-html {
-  margin: 0;
-  padding: 0;
-  font-family: 'Poppins', sans-serif;
-  height: 100%;
-  overflow-x: hidden;
-  background: url('https://www.voyage-maroc.com/cdn/ma-public/oasis_ziz.jpg') no-repeat center center/cover;
+/* Ajouts et modifications CSS */
+
+/* Hero amélioré */
+.hero {
+  position: relative;
+  height: 70vh;
+  background: url('https://images.unsplash.com/photo-1518630386542-3c85d825ae8f?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80') center/cover no-repeat;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  color: white;
 }
 
-
-.barre-navigation {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  width: 100%;
-  padding: 15px 5%;
-  box-sizing: border-box;
-  background: rgba(43, 26, 14, 0.9);
-  position: fixed;
+.hero-overlay {
+  position: absolute;
   top: 0;
   left: 0;
-  z-index: 1000;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
 }
 
-.logo {
-  color: #F5D29C;
-  font-size: 24px;
-  font-weight: bold;
-  text-decoration: none;
-  transition: 0.3s;
+.hero-content {
+  position: relative;
+  z-index: 2;
+  max-width: 800px;
+  padding: 0 20px;
 }
 
-.logo:hover {
-  color: #E8871E;
+.hero h1 {
+  font-size: 3.5rem;
+  margin-bottom: 1rem;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
 }
 
-.lien-navigation {
-  list-style: none;
-  display: flex;
-  gap: 20px;
-  margin: 0;
-  padding: 0;
+.hero-subtitle {
+  font-size: 1.5rem;
+  margin-bottom: 2rem;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
 }
 
-.lien-navigation a {
-  text-decoration: none;
-  color: #F5D29C;
-  font-size: 18px;
-  transition: 0.3s;
-}
-
-.lien-navigation a:hover {
-  color: #E8871E;
-}
-
-.inscription {
-  position: absolute;
-  top: 10px;
-  right: 100px;
-  padding: 10px 20px;
-  font-size: 1rem;
+.btn-hero {
+  display: inline-block;
+  background: #E67E22;
   color: white;
-  background-color: #8B572A;
+  padding: 15px 30px;
+  border-radius: 4px;
   text-decoration: none;
-  border-radius: 5px;
-  transition: 0.3s;
+  font-weight: bold;
+  font-size: 1.1rem;
+  transition: all 0.3s ease;
 }
 
-.inscription:hover {
-  background-color: #5C3820;
-  transform: scale(1.1);
+.btn-hero:hover {
+  background: #D35400;
+  transform: translateY(-3px);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
 }
 
-.fond {
-  height: 100vh;
+/* Section featured */
+.featured-section {
+  padding: 60px 0;
+}
 
-  display: flex;
-  justify-content: center;
-  align-items: center;
+.section-title {
   text-align: center;
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+  color: #2C3E50;
+}
+
+.section-subtitle {
+  text-align: center;
+  font-size: 1.2rem;
+  color: #7f8c8d;
+  margin-bottom: 40px;
+}
+
+.treks-grid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 30px;
+  margin-top: 30px;
+}
+
+/* Cartes trek améliorées */
+.trek-card {
+  width: 100%;
+  max-width: 500px;
+  background: white;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.trek-card.highlight {
+  border: 2px solid #E67E22;
+}
+
+.trek-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+}
+
+.trek-image {
+  height: 250px;
+  background-size: cover;
+  background-position: center;
   position: relative;
 }
 
-.fond-titre {
-  background: rgba(0, 0, 0, 0.5);
-  color: #F5D29C;
-  padding: 20px;
-  border-radius: 10px;
-}
-
-.titre {
-  font-size: 4rem;
-  margin: 0;
-  color: #E8871E;
-}
-
-.sous-titre {
-  font-size: 1.5rem;
-  margin: 10px 0 20px;
-  color: #F5D29C;
-}
-
-.btn {
-  display: inline-block;
-  padding: 10px 20px;
-  font-size: 1rem;
-  color: white;
-  background-color: #E8871E;
-  text-decoration: none;
-  border-radius: 5px;
-  transition: 0.3s;
-}
-
-.btn:hover {
-  background-color: #5C3820;
-  transform: scale(1.1);
-}
-
-footer {
-  background: rgba(43, 26, 14, 0.9);
-  color: #F5D29C;
-  text-align: center;
-  padding: 20px 0;
-  font-size: 14px;
-  margin-top: 50px;
-}
-
-.footer-container {
-  max-width: 1200px;
-  margin: auto;
-}
-
-.footer-container ul {
-  list-style: none;
-  padding: 0;
-  margin: 10px 0;
-}
-
-.footer-container ul li {
-  display: inline;
-  margin: 0 15px;
-}
-
-.footer-container ul li a {
-  color: #E8871E;
-  text-decoration: none;
-  font-weight: bold;
-}
-
-.footer-container ul li a:hover {
-  text-decoration: underline;
-  color: #F5D29C;
-}
-
-.logoRA {
-  width: 25px;
-  height: auto;
-}
-
-.user-menu {
+.highlight-badge {
   position: absolute;
-  top: 10px;
-  right: 20px;
-}
-
-.user-icon {
-  width: 40px;
-  height: 40px;
-  border-radius: 50%;
-  border: 2px solid white;
-  cursor: pointer;
-}
-
-.input {
-  display: block;
-  margin: 0 auto;
-  width: 300px;
-  padding: 10px;
-  font-size: 16px;
-  border: 2px solid #8D6E63;
-  border-radius: 25px;
-  outline: none;
-  text-align: center;
-  background: rgba(255, 250, 240, 0.9);
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-}
-
-
-.welcome-message {
-  font-size: 24px;
+  top: 15px;
+  left: 15px;
+  background: #E67E22;
+  color: white;
+  padding: 5px 10px;
+  border-radius: 4px;
   font-weight: bold;
-  color: #333;
-  background: rgba(255, 255, 255, 0.8);
-  padding: 15px 20px;
-  border-radius: 10px;
-  display: inline-block;
+  font-size: 0.9rem;
+}
+
+.trek-content {
+  padding: 20px;
+}
+
+.trek-content h3 {
+  margin-top: 0;
+  color: #2C3E50;
+  font-size: 1.5rem;
+}
+
+.trek-meta {
+  display: flex;
+  justify-content: space-between;
+  margin: 15px 0;
+  color: #7f8c8d;
+}
+
+.trek-meta i {
+  color: #E67E22;
+  margin-right: 5px;
+}
+
+.trek-actions {
+  display: flex;
+  gap: 15px;
   margin-top: 20px;
 }
 
-.logout-link {
-  display: inline-block;
-  margin-top: 10px;
-  font-size: 18px;
-  color: #8b0000;
+.btn-primary {
+  flex: 1;
+  background: #E67E22;
+  color: white;
+  padding: 12px;
+  border-radius: 4px;
+  text-align: center;
   text-decoration: none;
   font-weight: bold;
-  transition: color 0.3s ease-in-out;
+  transition: background 0.3s;
 }
 
-.logout-link:hover {
-  color: #ff4500;
-  text-decoration: underline;
+.btn-primary:hover {
+  background: #D35400;
+}
+
+.btn-secondary {
+  flex: 1;
+  border: 2px solid #E67E22;
+  color: #E67E22;
+  padding: 12px;
+  border-radius: 4px;
+  text-align: center;
+  text-decoration: none;
+  font-weight: bold;
+  transition: all 0.3s;
+}
+
+.btn-secondary:hover {
+  background: #E67E22;
+  color: white;
+}
+
+/* Section CTA */
+.cta-section {
+  background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('https://images.unsplash.com/photo-1509316785289-025f5b846b35?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80') center/cover;
+  padding: 80px 20px;
+  text-align: center;
+  color: white;
+  margin: 60px 
 }

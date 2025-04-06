@@ -4,7 +4,7 @@ session_start();
 // Traitement du formulaire
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $_SESSION['reservation'] = [
-        'destination' => 'Maroc',  // Ajoutez cette ligne pour stocker la destination
+        'destination' => 'Égypte',
         'type_trek' => $_POST['type_trek'],
         'date_depart' => $_POST['date_depart'],
         'billet_avion' => $_POST['billet_avion'],
@@ -24,7 +24,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Trek Maroc | Rajjel Agency</title>
+    <title>Trek Egypte | Rajjel Agency</title>
     <style>
         /* Nouvelle navigation */
 .trek-nav {
@@ -102,7 +102,7 @@ header {
         
         header {
             background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), 
-                        url('https://images.unsplash.com/photo-1518630382440-eba68df79c1e?ixlib=rb-1.2.1&auto=format&fit=crop&w=1200&q=80') no-repeat center center/cover;
+                        url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSyio3PWBVBkCGPvkoDhbzQ9lJeGfKsIJebHQ&s') no-repeat center center/cover;
             height: 60vh;
             display: flex;
             align-items: center;
@@ -319,58 +319,58 @@ header {
         </a>
         <span class="nav-separator">›</span>
         <span class="nav-current">
-            <i>🇲🇦</i> Trek Maroc
+            <i>🇩🇿</i> Trek Egyptes
         </span>
     </div>
 </nav>
     
     <header>
         <div class="container header-content">
-            <h1>Trek dans le Sahara marocain</h1>
-            <p>Découvrez les dunes dorées de Merzouga et l'immensité du désert</p>
+            <h1>Trek à travers le désert d'égypte</h1>
+            <p>Découvrez les paysages époustouflants du Tassili n'Ajjer</p>
         </div>
     </header>
     
     <div class="container">
-        <form method="POST" action="trek-maroc.php" class="trek-content">
+        <form method="POST" action="trek-égypte.php" class="trek-content">
             <div class="main-content">
                 <section class="description">
                     <h2>Description du Trek</h2>
-                    <p>Ce trek au cœur du Sahara marocain vous emmène à la découverte des paysages grandioses du désert, entre dunes majestueuses, oasis verdoyantes et montagnes arides du Djebel Bani, offrant une immersion totale dans la culture nomade et une expérience inoubliable sous les étoiles.</p>
+                    <p>"Découvrez un Sahara minéral et fantastique, où les roches sculptées par le vent côtoient les oasis perdues, loin des pyramides et du tumulte du Nil."</p>
                 </section>
                 
                 <section class="programme">
                     <h2>Programme détaillé</h2>
                     
                     <div class="programme-jour">
-                        <img src="https://images.unsplash.com/photo-1518630382440-eba68df79c1e?ixlib=rb-1.2.1&auto=format&fit=crop&w=300&q=80" alt="Vallée du Drâa" class="jour-img">
+                        <img src="https://images.unsplash.com/photo-1587854787071-b67e5d43d724?ixlib=rb-1.2.1&auto=format&fit=crop&w=300&q=80" alt="Départ vers le désert" class="jour-img">
                         <div>
-                            <h3>Jour 1 : Vallée du Drâa</h3>
-                            <p>Départ de Ouarzazate en passant par le col de Tizi'n-Tinififft avant de rejoindre la vallée du Drâa et ses palmeraies. Arrêt à Zagora puis continuation vers M'Hamid El Ghizlane, porte du désert.</p>
+                            <h3>Jour 1 : Arrivée à Djanet</h3>
+                            <p> Départ du Caire vers Bahariya. Première immersion dans le désert avec visite des sources thermales et des vestiges gréco-romains de l'oasis..</p>
                         </div>
                     </div>
                     
                     <div class="programme-jour">
-                        <img src="https://images.unsplash.com/photo-1518630382440-eba68df79c1e?ixlib=rb-1.2.1&auto=format&fit=crop&w=300&q=80" alt="Erg Chegaga" class="jour-img">
+                        <img src="https://images.unsplash.com/photo-1587854691369-3a7f4df9b725?ixlib=rb-1.2.1&auto=format&fit=crop&w=300&q=80" alt="Tassili n'Ajjer" class="jour-img">
                         <div>
-                            <h3>Jour 2 : Erg Chegaga</h3>
-                            <p>Départ à pied ou à dos de dromadaire pour traverser les premières dunes du désert en direction d'Erg Bourgueme. Continuation vers Erg Chegaga pour un coucher de soleil spectaculaire.</p>
+                            <h3>Jour 2 : Randonnée dans le Tassili</h3>
+                            <pExcursion vers le Désert Blanc et ses formations calcaires spectaculaires, sculptées par le vent. Nuit sous les étoiles dans ce paysage lunaire..</p>
                         </div>
                     </div>
                     
                     <div class="programme-jour">
-                        <img src="https://images.unsplash.com/photo-1518630382440-eba68df79c1e?ixlib=rb-1.2.1&auto=format&fit=crop&w=300&q=80" alt="Erg Abidiliya" class="jour-img">
+                        <img src="https://images.unsplash.com/photo-1587854691369-3a7f4df9b725?ixlib=rb-1.2.1&auto=format&fit=crop&w=300&q=80" alt="Dunes de l'Erg Admer" class="jour-img">
                         <div>
-                            <h3>Jour 3 : Erg Abidiliya</h3>
-                            <p>Randonnée matinale à travers le désert vers Oued El Attach. Poursuite du trek vers Erg Abidiliya, un paysage de dunes infinies et de silence absolu.</p>
+                            <h3>Jour 3 : Traversée des dunes</h3>
+                            <p>Traversée vers Farafra et découverte de la vallée d'Agabat, ses canyons et ses dunes de sable blond. Rencontre avec les nomades du désert.</p>
                         </div>
                     </div>
                     
                     <div class="programme-jour">
-                        <img src="https://images.unsplash.com/photo-1518630382440-eba68df79c1e?ixlib=rb-1.2.1&auto=format&fit=crop&w=300&q=80" alt="Oasis d'Aferdou" class="jour-img">
+                        <img src="https://images.unsplash.com/photo-1587854691369-3a7f4df9b725?ixlib=rb-1.2.1&auto=format&fit=crop&w=300&q=80" alt="Exploration des canyons" class="jour-img">
                         <div>
-                            <h3>Jour 4 : Oasis d'Aferdou</h3>
-                            <p>Traversée du Djebel Bani et arrivée à l'Oasis d'Aferdou. Retour vers Ouarzazate avec une dernière vue sur les paysages envoûtants du désert marocain.</p>
+                            <h3>Jour 4 : Exploration des canyons</h3>
+                            <p> Dernière randonnée dans le désert Noir et ses collines volcaniques avant retour au Caire, avec arrêt aux temples perdus en bordure du Sahara</p>
                         </div>
                     </div>
                 </section>
@@ -399,7 +399,7 @@ header {
                     <div class="radio-group">
                         <label>
                             <input type="radio" name="billet_avion" value="avec_agence" required> 
-                            Prendre le billet avec l'agence (+300€)
+                            Prendre le billet avec l'agence (+800€)
                         </label>
                         <label>
                             <input type="radio" name="billet_avion" value="independant"> 
