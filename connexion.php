@@ -1,75 +1,173 @@
 <?php
 session_start();
-$error = ""; // Initialisation pour éviter l'erreur "Undefined variable"
 
-if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    $email = $_POST["email"];
-    $password = $_POST["password"];
-    $csvFile = "utilisateurs.csv";
+// Chemin du fichier CSV
+$csv_file = 'utilisateurs.csv';
 
-    if (($handle = fopen($csvFile, "r")) !== FALSE) {
-        while (($data = fgetcsv($handle, 1000, ",")) !== FALSE) {
-            if ($data[2] == $email && $data[3] == $password) {
-                $_SESSION["user"] = [
-                    "nom" => $data[0],
-                    "prenom" => $data[1],
-                    "email" => $data[2],
-                    "role" => $data[4]  // On récupère le rôle (admin ou utilisateur)
-                ];
-                fclose($handle);
+// Récupérer la page de redirection depuis l'URL
+$redirect = $_GET['redirect'] ?? 'profil.php';
 
-                // Rediriger en fonction du rôle
-                if ($data[4] == "admin") {
-                    header("Location: admin.php");
-                } else {
-                    header("Location: acceuil1.php");
+// Traitement du formulaire
+$message = '';
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+    $email = $_POST['email'] ?? '';
+    $mot_de_passe = $_POST['mot_de_passe'] ?? '';
+
+    if (empty($email) || empty($mot_de_passe)) {
+        $message = 'Tous les champs sont obligatoires.';
+    } else {
+        // Vérifier les identifiants
+        if (file_exists($csv_file)) {
+            $file = fopen($csv_file, 'r');
+            $trouve = false;
+
+            // Passer la première ligne (en-têtes)
+            fgetcsv($file);
+
+            while (($data = fgetcsv($file)) !== FALSE) {
+                if ($data[1] === $email && password_verify($mot_de_passe, $data[2])) {
+
+                    // Déterminer le rôle (admin ou user)
+                    $role = in_array($data[1], [
+                        'nassimizza@gmail.com',
+                        'nassimbouslimani@gmail.com',
+                        'nassimsefraoui@gmail.com'
+                    ]) ? 'admin' : 'user';
+
+                    $_SESSION['user'] = [
+                        'nom' => $data[0],
+                        'email' => $data[1],
+                        'role' => $role
+                    ];
+
+                    $trouve = true;
+                    break;
                 }
-                exit();
             }
+            fclose($file);
+
+            if ($trouve) {
+                header("Location: " . $redirect);
+                exit();
+            } else {
+                $message = 'Email ou mot de passe incorrect.';
+            }
+        } else {
+            $message = 'Aucun utilisateur enregistré.';
         }
-        fclose($handle);
     }
-    $error = "Email ou mot de passe incorrect.";
 }
 ?>
-
 <!DOCTYPE html>
 <html lang="fr">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Alabasta Trek - Connexion</title>
-    <link rel="stylesheet" href="connexion.css">
-    <script src="https://kit.fontawesome.com/a4f4cc5542.js" crossorigin="anonymous"></script>
+    <title>Connexion</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f9;
+            margin: 0;
+            padding: 20px;
+            display: flex;
+            justify-content: center;
+        }
+
+        .container {
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            width: 100%;
+            max-width: 400px;
+        }
+
+        h1 {
+            text-align: center;
+            color: #333;
+        }
+
+        .form-group {
+            margin-bottom: 15px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+
+        input {
+            width: 100%;
+            padding: 8px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+
+        button {
+            width: 100%;
+            padding: 10px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #45a049;
+        }
+
+        .message {
+            margin: 15px 0;
+            padding: 10px;
+            border-radius: 4px;
+            text-align: center;
+        }
+
+        .error {
+            background-color: #f2dede;
+            color: #a94442;
+        }
+
+        .register-link {
+            text-align: center;
+            margin-top: 15px;
+        }
+    </style>
 </head>
 
 <body>
-    <section>
+    <div class="container">
         <h1>Connexion</h1>
-        <?php if (!empty($error)) echo "<p style='color:red; text-align:center;'>$error</p>"; ?>
-        <form action="connexion.php" method="post">
-            <div class="inputbox">
-                <input type="email" name="email" placeholder="Email" required>
-                <i class="fa-solid fa-user"></i>
+
+        <?php if ($message): ?>
+            <div class="message error">
+                <?= htmlspecialchars($message) ?>
             </div>
-            <div class="inputbox">
-                <input type="password" name="password" placeholder="Mot de passe" required>
-                <i class="fa-solid fa-lock"></i>
+        <?php endif; ?>
+
+        <form method="post">
+            <div class="form-group">
+                <label for="email">Email</label>
+                <input type="email" id="email" name="email" required>
             </div>
-            <div class="remember-forgot">
-                <label><input type="checkbox"> Se souvenir de moi </label>
-                <a href="#">Mot de passe oublié ?</a>
+
+            <div class="form-group">
+                <label for="mot_de_passe">Mot de passe</label>
+                <input type="password" id="mot_de_passe" name="mot_de_passe" required>
             </div>
-            <button type="submit" class="login-btn">Se connecter</button>
+
+            <button type="submit">Se connecter</button>
         </form>
+
         <div class="register-link">
-            <p>Pas de compte ? <a href="inscriptionV1.php">Inscription</a></p>
+            Pas encore de compte? <a href="inscriptionV1.php">S'inscrire</a>
         </div>
-    </section>
+    </div>
 </body>
-<footer>
-    <a href="acceuil1.php" class="btn1">Retour à l'accueil</a>
-</footer>
 
 </html>
