@@ -1,0 +1,195 @@
+/* Ajouts et modifications CSS */
+
+/* Hero amélioré */
+.hero {
+  position: relative;
+  height: 70vh;
+  background: url('https://images.unsplash.com/photo-1518630386542-3c85d825ae8f?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80') center/cover no-repeat;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  color: white;
+}
+
+.hero-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+}
+
+.hero-content {
+  position: relative;
+  z-index: 2;
+  max-width: 800px;
+  padding: 0 20px;
+}
+
+.hero h1 {
+  font-size: 3.5rem;
+  margin-bottom: 1rem;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.hero-subtitle {
+  font-size: 1.5rem;
+  margin-bottom: 2rem;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+}
+
+.btn-hero {
+  display: inline-block;
+  background: #E67E22;
+  color: white;
+  padding: 15px 30px;
+  border-radius: 4px;
+  text-decoration: none;
+  font-weight: bold;
+  font-size: 1.1rem;
+  transition: all 0.3s ease;
+}
+
+.btn-hero:hover {
+  background: #D35400;
+  transform: translateY(-3px);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+}
+
+/* Section featured */
+.featured-section {
+  padding: 60px 0;
+}
+
+.section-title {
+  text-align: center;
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+  color: #2C3E50;
+}
+
+.section-subtitle {
+  text-align: center;
+  font-size: 1.2rem;
+  color: #7f8c8d;
+  margin-bottom: 40px;
+}
+
+.treks-grid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 30px;
+  margin-top: 30px;
+}
+
+/* Cartes trek améliorées */
+.trek-card {
+  width: 100%;
+  max-width: 500px;
+  background: white;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.trek-card.highlight {
+  border: 2px solid #E67E22;
+}
+
+.trek-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+}
+
+.trek-image {
+  height: 250px;
+  background-size: cover;
+  background-position: center;
+  position: relative;
+}
+
+.highlight-badge {
+  position: absolute;
+  top: 15px;
+  left: 15px;
+  background: #E67E22;
+  color: white;
+  padding: 5px 10px;
+  border-radius: 4px;
+  font-weight: bold;
+  font-size: 0.9rem;
+}
+
+.trek-content {
+  padding: 20px;
+}
+
+.trek-content h3 {
+  margin-top: 0;
+  color: #2C3E50;
+  font-size: 1.5rem;
+}
+
+.trek-meta {
+  display: flex;
+  justify-content: space-between;
+  margin: 15px 0;
+  color: #7f8c8d;
+}
+
+.trek-meta i {
+  color: #E67E22;
+  margin-right: 5px;
+}
+
+.trek-actions {
+  display: flex;
+  gap: 15px;
+  margin-top: 20px;
+}
+
+.btn-primary {
+  flex: 1;
+  background: #E67E22;
+  color: white;
+  padding: 12px;
+  border-radius: 4px;
+  text-align: center;
+  text-decoration: none;
+  font-weight: bold;
+  transition: background 0.3s;
+}
+
+.btn-primary:hover {
+  background: #D35400;
+}
+
+.btn-secondary {
+  flex: 1;
+  border: 2px solid #E67E22;
+  color: #E67E22;
+  padding: 12px;
+  border-radius: 4px;
+  text-align: center;
+  text-decoration: none;
+  font-weight: bold;
+  transition: all 0.3s;
+}
+
+.btn-secondary:hover {
+  background: #E67E22;
+  color: white;
+}
+
+/* Section CTA */
+.cta-section {
+  background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('https://images.unsplash.com/photo-1509316785289-025f5b846b35?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80') center/cover;
+  padding: 80px 20px;
+  text-align: center;
+  color: white;
+  margin: 60px 
+}

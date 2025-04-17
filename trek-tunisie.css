@@ -1,0 +1,208 @@
+
+body {
+    font-family: 'Poppins', sans-serif;
+    margin: 0;
+    padding: 0;
+    background: linear-gradient(to bottom, #ab8572, #ffe4a4);
+    color: #3E2723;
+    text-align: center;
+}
+
+h1 { 
+    font-size: 2rem; 
+    text-transform: uppercase; 
+    margin-top: 100px; 
+    color: #4E342E; 
+    padding: 10px;
+    border: 3px solid #8D6E63;
+    display: inline-block;
+    border-radius: 8px;
+    background: rgba(255, 235, 205, 0.9);
+}
+
+
+.container {
+    max-width: 900px;
+    margin: 120px auto 20px;
+    background: rgba(255, 248, 220, 0.9);
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    text-align: left;
+    border: 2px solid #8D6E63;
+}
+
+.trek-image img {
+    width: 80%;
+    max-width: 600px;
+    border-radius: 10px;
+    height: auto;
+}
+
+
+.trek-title {
+    font-size: 2rem;
+    color: #4E342E;
+    font-weight: bold;
+    margin-top: 20px;
+}
+
+
+.trek-description {
+    font-size: 1.2rem;
+    color: #6D4C41;
+    margin-top: 10px;
+    line-height: 1.6;
+}
+
+.programme-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+    margin-top: 20px;
+}
+
+.jour {
+    background: rgba(255, 235, 205, 0.9);
+    padding: 15px;
+    border-radius: 10px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+    width: 45%;
+    text-align: center;
+}
+
+.jour img {
+    width: 100%;
+    max-width: 250px;
+    border-radius: 8px;
+}
+
+
+.tarifs table {
+    width: 80%;
+    margin: 20px auto;
+    border-collapse: collapse;
+}
+
+.tarifs th, .tarifs td {
+    border: 2px solid #8D6E63;
+    padding: 10px;
+    text-align: center;
+}
+
+.btn {
+    display: inline-block;
+    margin-top: 20px;
+    padding: 12px 20px;
+    font-size: 1rem;
+    color: white;
+    background: #8D6E63;
+    border-radius: 8px;
+    text-decoration: none;
+    transition: background 0.3s;
+}
+
+.btn:hover {
+    background: #6D4C41;
+}
+.date-selection {
+    text-align: center;
+    margin-top: 20px;
+}
+
+.date-selection label {
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: #4E342E;
+}
+
+.date-selection input {
+    margin-left: 10px;
+    padding: 10px;
+    font-size: 1rem;
+    border: 2px solid #8D6E63;
+    border-radius: 5px;
+    background: rgba(255, 248, 220, 0.8);
+    cursor: pointer;
+}
+
+.date-selection input:hover {
+    background: rgba(255, 248, 220, 1);
+}
+
+.billet-avion {
+    text-align: center;
+    margin-top: 20px;
+    padding: 15px;
+    background: rgba(255, 248, 220, 0.9);
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+    max-width: 500px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.billet-avion h2 {
+    font-size: 1.3rem;
+    color: #4E342E;
+}
+
+.billet-avion label {
+    display: block;
+    font-size: 1.1rem;
+    margin-top: 10px;
+    cursor: pointer;
+}
+
+.billet-avion input {
+    transform: scale(1.2);
+    margin-right: 10px;
+    cursor: pointer;
+}
+
+.validation {
+    display: block;
+    width: max-content;
+    margin: 20px auto;
+    padding: 14px 25px;
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: white;
+    background: #65ab5d; 
+    border-radius: 8px;
+    text-decoration: none;
+    text-align: center;
+    transition: background 0.3s ease, transform 0.2s ease;
+    box-shadow: 3px 5px 8px rgba(0, 0, 0, 0.2);
+}
+
+.validation:hover {
+    background: #78d347; 
+    transform: scale(1.05);
+}
+
+.validation:active {
+    background: #3e4e2c;
+    transform: scale(0.98);
+}
+
+.nombre-personnes {
+    margin-top: 10px;
+    font-size: 1.1rem;
+    color: #4E342E;
+    padding-top: 50px;
+}
+
+.nombre-personnes select {
+    width: 100%;
+    max-width: 200px;
+    padding: 8px;
+    font-size: 1rem;
+    border: 2px solid #8D6E63;
+    border-radius: 5px;
+    background: rgba(255, 248, 220, 0.9);
+    color: #3E2723;
+    cursor: pointer;
+}
+
