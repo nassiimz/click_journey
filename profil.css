@@ -83,7 +83,7 @@ h2 {
     background: #6D4C41;
 }
 
-/* Styles pour les placeholders */
+
 .email ::placeholder {
     color: black;
 }
