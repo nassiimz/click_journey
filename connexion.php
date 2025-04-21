@@ -1,13 +1,12 @@
 <?php
 session_start();
 
-// Chemin du fichier CSV
 $csv_file = 'utilisateurs.csv';
 
-// Récupérer la page de redirection depuis l'URL
+
 $redirect = $_GET['redirect'] ?? 'profil.php';
 
-// Traitement du formulaire
+
 $message = '';
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $email = $_POST['email'] ?? '';
@@ -16,12 +15,12 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     if (empty($email) || empty($mot_de_passe)) {
         $message = 'Tous les champs sont obligatoires.';
     } else {
-        // Vérifier les identifiants
+     
         if (file_exists($csv_file)) {
             $file = fopen($csv_file, 'r');
             $trouve = false;
 
-            // Passer la première ligne (en-têtes)
+            
             fgetcsv($file);
 
             while (($data = fgetcsv($file)) !== FALSE) {
