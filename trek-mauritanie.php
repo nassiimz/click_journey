@@ -144,7 +144,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             padding: 0 20px;
         }
 
-        header {https://i.f1g.fr/media/cms/1200x630_crop/2022/01/27/df4c3ae0542deaef35bf2ee8324a19593f8651d1f694e78d40edea1518383d6b.jpg') no-repeat center center/cover;
+       header {
+            background: url('https://i.f1g.fr/media/cms/1200x630_crop/2022/01/27/df4c3ae0542deaef35bf2ee8324a19593f8651d1f694e78d40edea1518383d6b.jpg') no-repeat center center/cover;
             height: 60vh;
             display: flex;
             align-items: center;
