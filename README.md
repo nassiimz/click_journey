@@ -22,7 +22,13 @@ Rajjel Agency est une agence spécialisée dans l'organisation de treks à trave
 * Gestion des utilisateurs (page administrateur)
    * Dans le footer tout en bas  
 * Sélection des options (billet d'avion, hébergement...)
-  * Disponible après le choix du circuit   
+  * Disponible après le choix du circuit
+* Possiblité de gérer les utilisateurs avec la page 'admin' qui est accessible seulement si une personne est connectée avec les adresses mails suivantes:
+     -nassimizza@gmail.com
+     -nassimbouslimani@gmail.com
+     -nassimsefraoui@gmail.com
+* Possibilité a présent d'éeffectuer des achats qui seront stochés dans le profil de l'utilisateur et qui pourra modifier si le souhaite.
+  
 
 ---
 Les couleurs utilisées : 
