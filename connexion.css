@@ -1,22 +1,19 @@
-/* === VARIABLES === */
+
 :root {
     --primary: #E8871E;
-    /* Orange principal */
+
     --primary-dark: #D97B1B;
-    /* Orange foncé */
     --secondary: #8D6E63;
-    /* Brun terreux */
+    
     --light: #FFF9F0;
-    /* Fond crème */
+    
     --white: #FFFFFF;
-    /* Blanc */
+
     --text: #333333;
-    /* Texte foncé */
     --error: #E74C3C;
-    /* Rouge pour erreurs */
+
 }
 
-/* === BASE STYLES === */
 * {
     margin: 0;
     padding: 0;
@@ -34,7 +31,7 @@ body {
     padding: 2rem;
 }
 
-/* === CARD CONTAINER === */
+
 .login-container {
     width: 100%;
     max-width: 450px;
@@ -43,10 +40,10 @@ body {
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
     overflow: hidden;
     margin-bottom: 2rem;
-    /* Espace pour le bouton */
+    
 }
 
-/* === HEADER === */
+
 .login-header {
     background: var(--primary);
     color: var(--white);
@@ -73,7 +70,7 @@ body {
     border-radius: 2px;
 }
 
-/* === FORM STYLES === */
+
 .login-form {
     padding: 2rem;
 }
@@ -116,7 +113,7 @@ body {
     font-size: 1.2rem;
 }
 
-/* === BUTTON === */
+
 .login-btn {
     width: 100%;
     padding: 1rem;
@@ -135,7 +132,7 @@ body {
     background: var(--primary-dark);
 }
 
-/* === BOTTOM LINK === */
+
 .bottom-links {
     display: flex;
     flex-direction: column;
@@ -178,7 +175,7 @@ body {
     text-decoration: underline;
 }
 
-/* === RESPONSIVE === */
+
 @media (max-width: 600px) {
     body {
         padding: 1rem;
