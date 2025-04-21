@@ -1,13 +1,13 @@
 <?php
 session_start();
 
-// Vérifier si l'utilisateur est connecté
+
 if (!isset($_SESSION['user'])) {
     header('Location: connexion.php?redirect=profil.php');
     exit();
 }
 
-// Récupérer les informations de l'utilisateur
+
 $user = $_SESSION['user'];
 ?>
 <!DOCTYPE html>
@@ -20,8 +20,7 @@ $user = $_SESSION['user'];
     <link rel="stylesheet" href="aventure.css">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
     <style>
-        /* Styles supplémentaires spécifiques au profil */
-        /* Correction pour le bouton Mon Compte */
+       
         .btn-nav {
             color: var(--white) !important;
             background-color: var(--primary-color);
@@ -174,7 +173,7 @@ $user = $_SESSION['user'];
         </div>
     </nav>
 
-    <!-- Hero Section -->
+  
     <header class="profile-hero">
         <div class="container hero-content">
             <h1>Bienvenue, <?= htmlspecialchars($user['nom']) ?></h1>
@@ -182,10 +181,9 @@ $user = $_SESSION['user'];
         </div>
     </header>
 
-    <!-- Main Content -->
-    <main class="main-content">
+        <main class="main-content">
         <div class="container profile-container">
-            <!-- Sidebar -->
+           
             <aside class="profile-sidebar">
                 <img src="https://ui-avatars.com/api/?name=<?= urlencode($user['nom']) ?>&background=E67E22&color=fff&size=150"
                     alt="Avatar" class="profile-avatar">
@@ -201,7 +199,7 @@ $user = $_SESSION['user'];
             </aside>
 
             
-            <!-- Main Profile Content -->
+         
 <div class="profile-content">
     <h2 class="section-title">Mes Réservations</h2>
     <p class="section-subtitle">Retrouvez ici toutes vos aventures à venir et passées</p>
@@ -238,16 +236,11 @@ $user = $_SESSION['user'];
     <?php endif; ?>
 </div>
                
-                <!-- Message si pas de réservations -->
-                <!-- <div class="no-reservations">
-                    <p>Vous n'avez aucune réservation pour le moment.</p>
-                    <a href="aventure.php" class="btn">Découvrir nos treks</a>
-                </div> -->
             </div>
         </div>
     </main>
 
-    <!-- Footer -->
+
     <footer class="footer">
         <div class="container">
             <div class="footer-content">
