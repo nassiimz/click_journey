@@ -7,7 +7,7 @@
   <meta name="description" content="Agence spécialisée dans les treks et expéditions dans le Sahara. Découvrez les paysages majestueux et la culture nomade.">
   <title>Rajjel Agency - Trekking dans le Sahara</title>
   <style>
-    /* Styles généraux */
+
     body {
       font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
       margin: 0;
@@ -17,7 +17,6 @@
       background-color: #f9f9f9;
     }
     
-    /* Section Présentation */
     .pres {
       background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('https://images.unsplash.com/photo-1517825738774-7de9363ef735?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80') no-repeat center center;
       background-size: cover;
@@ -58,7 +57,7 @@
       text-align: justify;
     }
     
-    /* Pied de page */
+    
     .footer-container {
       background-color: #222;
       color: #fff;
@@ -114,7 +113,7 @@
       box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
     }
     
-    /* Responsive */
+
     @media (max-width: 768px) {
       .contact-info, .contact-details {
         width: 100%;
