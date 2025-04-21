@@ -16,7 +16,7 @@
     --shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
 }
 
-/* === RÉINITIALISATION === */
+
 * {
     margin: 0;
     padding: 0;
@@ -26,7 +26,7 @@
 
 body {
     background-color: var(--bg);
-    /* Fond uni */
+
     min-height: 100vh;
     display: flex;
     justify-content: center;
@@ -35,7 +35,7 @@ body {
     font-family: 'Poppins';
 }
 
-/* === CARTE DU FORMULAIRE === */
+
 .form-container {
     background: white;
     border-radius: 12px;
@@ -46,7 +46,7 @@ body {
     overflow: hidden;
 }
 
-/* === EN-TÊTE === */
+
 .form-header {
     background: #E8871E;
     color: white;
@@ -60,12 +60,12 @@ body {
     font-weight: 600;
 }
 
-/* === CORPS DU FORMULAIRE === */
+
 .form-body {
     padding: 2rem;
 }
 
-/* === GROUPES DE CHAMPS === */
+
 .form-row {
     margin-bottom: 1.5rem;
 }
@@ -79,7 +79,7 @@ body {
     flex: 1;
 }
 
-/* === ÉTIQUETTES ET CHAMPS === */
+
 .form-label {
     display: block;
     margin-bottom: 0.5rem;
@@ -102,7 +102,7 @@ body {
     outline: none;
 }
 
-/* === CHECKBOX === */
+
 .checkbox-container {
     display: flex;
     align-items: center;
@@ -120,7 +120,7 @@ body {
     font-size: 0.95rem;
 }
 
-/* === BOUTON === */
+
 .submit-btn {
     width: 100%;
     padding: 0.875rem;
@@ -138,7 +138,7 @@ body {
     background: var(--primary-dark);
 }
 
-/* === LIEN DE CONNEXION === */
+
 .login-link {
     text-align: center;
     margin-top: 1.5rem;
@@ -155,7 +155,7 @@ body {
     text-decoration: underline;
 }
 
-/* === DATE HINT === */
+
 .date-hint {
     font-size: 0.85rem;
     color: #666;
@@ -163,7 +163,7 @@ body {
     font-style: italic;
 }
 
-/* === VERSION MOBILE === */
+
 @media (max-width: 600px) {
     .form-row.double {
         flex-direction: column;
