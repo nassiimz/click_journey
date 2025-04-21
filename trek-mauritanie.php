@@ -1,18 +1,18 @@
 <?php
 session_start();
 
-// Traitement du formulaire
+
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    // Sauvegarde des informations dans la session
+
     $_SESSION['reservation'] = [
-        'destination' => 'Mauritanie', // Assurez-vous que la destination est correctement définie
+        'destination' => 'Mauritanie',
         'type_trek' => $_POST['type_trek'],
         'date_depart' => $_POST['date_depart'],
         'billet_avion' => $_POST['billet_avion'],
         'nb_personnes' => $_POST['nb_personnes']
     ];
 
-    // Vérifier si toutes les données nécessaires sont présentes
+ 
     if (
         !empty($_SESSION['reservation']['destination']) &&
         !empty($_SESSION['reservation']['type_trek']) &&
@@ -20,10 +20,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         !empty($_SESSION['reservation']['billet_avion']) &&
         !empty($_SESSION['reservation']['nb_personnes'])
     ) {
-        // Enregistrer la réservation dans un fichier CSV
-        $file = fopen('reservations.csv', 'a'); // Ouvre le fichier en mode ajout
+      
+        $file = fopen('reservations.csv', 'a'); 
         if ($file) {
-            // Ajouter les données dans le fichier CSV
+           
             $reservation = [
                 $_SESSION['reservation']['destination'],
                 $_SESSION['reservation']['type_trek'],
@@ -31,23 +31,23 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 $_SESSION['reservation']['billet_avion'],
                 $_SESSION['reservation']['nb_personnes']
             ];
-            // Ajouter une ligne au fichier CSV
+          
             if (fputcsv($file, $reservation)) {
                 echo 'Réservation enregistrée avec succès.';
             } else {
                 echo 'Erreur lors de l\'écriture dans le fichier CSV.';
             }
-            fclose($file); // Fermer le fichier après l'écriture
+            fclose($file); 
         } else {
             echo 'Erreur lors de l\'ouverture du fichier CSV.';
         }
 
-        // Vérification si l'utilisateur est connecté
+     
         if (isset($_SESSION['user'])) {
-            // Redirection vers la page récapitulative
+            
             header('Location: recap-reservation.php');
         } else {
-            // Si l'utilisateur n'est pas connecté, redirection vers la page de connexion
+            
             header('Location: connexion.php?redirect=recap-reservation.php');
         }
         exit();
@@ -110,7 +110,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             line-height: 1;
         }
 
-        /* Adaptez le header pour qu'il touche la nouvelle nav */
+     
         header {
             margin-top: 0;
         }
