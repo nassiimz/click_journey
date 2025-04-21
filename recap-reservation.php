@@ -1,22 +1,20 @@
 <?php
 session_start();
 
-// Vérifier si l'utilisateur est connecté
+
 if (!isset($_SESSION['user'])) {
     header('Location: connexion.php?redirect=recap-reservation.php');
     exit();
 }
 
-// Vérifier s'il y a une réservation en session
 if (!isset($_SESSION['reservation'])) {
     header('Location: aventure.php');
     exit();
 }
 
 
-// Vérifier si le paiement a été accepté
 if (isset($_GET['payment']) && $_GET['payment'] === 'success') {
-    // Enregistrer la réservation dans le fichier CSV
+  
     $reservation = $_SESSION['reservation'];
     $ligne = [
         $reservation['destination'],
@@ -26,18 +24,18 @@ if (isset($_GET['payment']) && $_GET['payment'] === 'success') {
         $reservation['nb_personnes']
     ];
     
-    // Ouvrir le fichier en mode ajout
+
     $file = fopen('reservations.csv', 'a');
     fputcsv($file, $ligne);
     fclose($file);
     
-    // Ajouter la réservation à la session utilisateur
+
     if (!isset($_SESSION['user']['reservations'])) {
         $_SESSION['user']['reservations'] = [];
     }
     $_SESSION['user']['reservations'][] = $reservation;
     
-    // Redirection vers le profil avec un message de succès
+
     header('Location: profil.php?payment=success');
     exit();
 }
@@ -45,7 +43,7 @@ if (isset($_GET['payment']) && $_GET['payment'] === 'success') {
 
 $reservation = $_SESSION['reservation'];
 
-// Calcul du prix en fonction du type de trek
+
 $prix_trek = 0;
 switch ($reservation['type_trek']) {
     case 'standard':
@@ -62,13 +60,12 @@ switch ($reservation['type_trek']) {
         break;
 }
 
-// Calcul du prix du billet d'avion
+
 $prix_avion = ($reservation['billet_avion'] === 'avec_agence') ? 800 : 0;
 $billet_avion_libelle = ($reservation['billet_avion'] === 'avec_agence')
     ? "Billet d'avion inclus"
     : "Billet d'avion non inclus";
 
-// Calcul du total
 $total = ($prix_trek + $prix_avion) * $reservation['nb_personnes'];
 ?>
 <!DOCTYPE html>
