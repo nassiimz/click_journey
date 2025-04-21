@@ -1,16 +1,16 @@
 <?php
-// Démarrer la session
+
 session_start();
 
-// Chemin du fichier CSV
+
 $csv_file = 'utilisateurs.csv';
 
-// Créer le fichier s'il n'existe pas
+
 if (!file_exists($csv_file)) {
     file_put_contents($csv_file, "nom,email,mot_de_passe\n");
 }
 
-// Traitement du formulaire
+
 $message = '';
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $nom = $_POST['nom'] ?? '';
@@ -18,7 +18,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $mot_de_passe = $_POST['mot_de_passe'] ?? '';
     $confirmation = $_POST['confirmation'] ?? '';
 
-    // Validation
+    
     if (empty($nom) || empty($email) || empty($mot_de_passe) || empty($confirmation)) {
         $message = 'Tous les champs sont obligatoires.';
     } elseif ($mot_de_passe !== $confirmation) {
@@ -26,7 +26,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     } elseif (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
         $message = 'Email invalide.';
     } else {
-        // Vérifier si l'email existe déjà
+        
         $file = fopen($csv_file, 'r');
         $email_existe = false;
         while (($data = fgetcsv($file)) !== FALSE) {
@@ -40,10 +40,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         if ($email_existe) {
             $message = 'Cet email est déjà utilisé.';
         } else {
-            // Hacher le mot de passe
+            
             $mot_de_passe_hash = password_hash($mot_de_passe, PASSWORD_DEFAULT);
             
-            // Ajouter au fichier CSV
+          
             $file = fopen($csv_file, 'a');
             fputcsv($file, [$nom, $email, $mot_de_passe_hash]);
             fclose($file);
