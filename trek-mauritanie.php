@@ -391,36 +391,37 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                     <h2>Programme détaillé</h2>
 
                     <div class="programme-jour">
-                        <img src="https://images.unsplash.com/photo-1518630382440-eba68df79c1e?ixlib=rb-1.2.1&auto=format&fit=crop&w=300&q=80" alt="Vallée du Drâa" class="jour-img">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/f/ff/Atar%2Cmarket_street1.jpg" alt="Arrivée à Atar" class="jour-img">
                         <div>
-                            <h3>Jour 1 : Vallée du Drâa</h3>
-                            <p>Arrivée à Atar, départ pour Chinguetti. Découverte des bibliothèques anciennes et des maisons en pierre ocre de cette ville classée à l'UNESCO, porte d'entrée du désert.</p>
+                            <h3>Jour 1 : Arrivée à Atar</h3>
+                            <p>Vol jusqu’à Atar, accueil par l’équipe locale. Transfert vers Chinguetti, ancienne cité caravanière classée UNESCO. Nuit dans une auberge traditionnelle.</p>
                         </div>
                     </div>
 
                     <div class="programme-jour">
-                        <img src="https://images.unsplash.com/photo-1518630382440-eba68df79c1e?ixlib=rb-1.2.1&auto=format&fit=crop&w=300&q=80" alt="Erg Chegaga" class="jour-img">
+                        <img src="https://www.terdav.com/Content/img/Produits/produit/MRT/41908/739794_QuatreTiers.ori.jpg" alt="Randonnée dans les dunes" class="jour-img">
                         <div>
-                            <h3>Jour 2 : Erg Chegaga</h3>
-                            <p> Randonnée vers l'erg Amatlich, premières dunes impressionnantes. Nuit sous tente nomade après une journée à parcourir les paysages lunaires du plateau désertique.</p>
+                            <h3>Jour 2 : Départ du trek</h3>
+                            <p>Départ à pied dans les dunes de l’Erg Ouarane. Bivouac dans le désert après une journée de marche accompagnée de chameliers.</p>
                         </div>
                     </div>
 
                     <div class="programme-jour">
-                        <img src="https://images.unsplash.com/photo-1518630382440-eba68df79c1e?ixlib=rb-1.2.1&auto=format&fit=crop&w=300&q=80" alt="Erg Abidiliya" class="jour-img">
+                        <img src="https://photos.altai-travel.com/1280x0/oasis-mauritanie-martin-laprade-nicolas-8114.jpg" alt="Oasis dans le désert" class="jour-img">
                         <div>
-                            <h3>Jour 3 : Erg Abidiliya</h3>
-                            <p> Traversée vers Ouadane, autre joyau caravanier. Exploration des ruines de la vieille ville et des puits traditionnels encore utilisés par les nomades.</p>
+                            <h3>Jour 3 : Oasis et campement nomade</h3>
+                            <p>Traversée de plateaux et de regs avant d’atteindre une oasis verdoyante. Rencontre avec les familles nomades. Soirée autour du feu.</p>
                         </div>
                     </div>
 
                     <div class="programme-jour">
-                        <img src="https://images.unsplash.com/photo-1518630382440-eba68df79c1e?ixlib=rb-1.2.1&auto=format&fit=crop&w=300&q=80" alt="Oasis d'Aferdou" class="jour-img">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/c/c3/Chinguetti-Vue_Goblale_Vieille_ville.jpg" alt="Retour à Chinguetti" class="jour-img">
                         <div>
-                            <h3>Jour 4 : Oasis d'Aferdou</h3>
-                            <p> Ascension du plateau de l'Adrar pour un panorama à couper le souffle sur l'immensité saharienne avant retour vers Atar..</p>
+                            <h3>Jour 4 : Retour à Chinguetti</h3>
+                            <p>Dernière marche matinale avant de rejoindre Chinguetti. Visite des bibliothèques anciennes puis transfert vers Atar pour le vol retour.</p>
                         </div>
                     </div>
+
                 </section>
             </div>
 
