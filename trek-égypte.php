@@ -1,7 +1,6 @@
 <?php
 session_start();
 
-// Traitement du formulaire
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $_SESSION['reservation'] = [
         'destination' => 'Égypte',
@@ -11,7 +10,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         'nb_personnes' => $_POST['nb_personnes']
     ];
 
-    // Vérifier si toutes les données nécessaires sont présentes
+
     if (
         !empty($_SESSION['reservation']['destination']) &&
         !empty($_SESSION['reservation']['type_trek']) &&
@@ -19,10 +18,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         !empty($_SESSION['reservation']['billet_avion']) &&
         !empty($_SESSION['reservation']['nb_personnes'])
     ) {
-        // Enregistrer la réservation dans un fichier CSV
-        $file = fopen('reservations.csv', 'a'); // Ouvre le fichier en mode ajout
+ 
+        $file = fopen('reservations.csv', 'a'); 
         if ($file) {
-            // Ajouter les données dans le fichier CSV
+         
             $reservation = [
                 $_SESSION['reservation']['destination'],
                 $_SESSION['reservation']['type_trek'],
@@ -30,13 +29,13 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 $_SESSION['reservation']['billet_avion'],
                 $_SESSION['reservation']['nb_personnes']
             ];
-            // Ajouter une ligne au fichier CSV
+          
             if (fputcsv($file, $reservation)) {
                 echo 'Réservation enregistrée avec succès.';
             } else {
                 echo 'Erreur lors de l\'écriture dans le fichier CSV.';
             }
-            fclose($file); // Fermer le fichier après l'écriture
+            fclose($file); 
         } else {
             echo 'Erreur lors de l\'ouverture du fichier CSV.';
         }
@@ -58,7 +57,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Trek Egypte | Rajjel Agency</title>
     <style>
-        /* Nouvelle navigation */
+
         .trek-nav {
             background-color: var(--dark);
             padding: 15px 0;
@@ -101,7 +100,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             line-height: 1;
         }
 
-        /* Adaptez le header pour qu'il touche la nouvelle nav */
+       
         header {
             margin-top: 0;
         }
