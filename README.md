@@ -6,9 +6,9 @@ Rajjel Agency est une agence spécialisée dans l'organisation de treks à trave
 ---
 
 ## Lancement du site
-1. Télécharger le zip de cette page github4
-2. Extraire les fichier en suite
-3. Ouvrir le fichier "accueil" avec un navigateur.
+1. Lancer XAMPP ou autre
+2. Activer SQL dans XAMPP panel
+3. Aller sur votre navigateur et localhost ace le bon nom de dossier
 ---
 
 ##  Fonctionnalités du site
