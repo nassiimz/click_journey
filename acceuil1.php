@@ -216,7 +216,7 @@ session_start();
                         <div class="trek-content">
                             <h3>Tassili n'Ajjer</h3>
                             <p>Explorez les formations rocheuses spectaculaires et les anciennes peintures rupestres.</p>
-                            <a href="trek-algerie.php" class="btn">En savoir plus</a>
+                            <a href="trek-algérie.php" class="btn">En savoir plus</a>
                         </div>
                     </article>
                 </div>
