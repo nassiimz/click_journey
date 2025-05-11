@@ -280,7 +280,7 @@ $total = ($prix_trek + $prix_avion) * $reservation['nb_personnes'];
                     $transaction_id = substr(bin2hex(random_bytes(12)), 0, 15);
                     $vendeur = "MI-5_G";
                     $api_key = getAPIKey($vendeur);
-                    $retour_url = 'http://' . $_SERVER['HTTP_HOST'] . '/debutphase3/acceuil1.php?user=' . $_SESSION['user']['id'];
+                    $retour_url = 'http://' . $_SERVER['HTTP_HOST'] . '/click_journey-master/acceuil1.php?user=' . $_SESSION['user']['id'];
                     $control = md5($api_key . "#" . $transaction_id . "#" . $total . "#" . $vendeur . "#" . $retour_url . "#");
                     ?>
                     <input type="hidden" name="transaction" value="<?= $transaction_id ?>">
