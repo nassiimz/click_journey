@@ -166,5 +166,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             Déjà un compte? <a href="connexion.php">Se connecter</a>
         </div>
     </div>
+    <script src="cacher-mdp.js" defer></script>
 </body>
 </html>

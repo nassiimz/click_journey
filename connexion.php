@@ -168,6 +168,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             Pas encore de compte? <a href="inscriptionV1.php">S'inscrire</a>
         </div>
     </div>
+    <script src="cacher-mdp.js" defer></script>
 </body>
 
 </html>

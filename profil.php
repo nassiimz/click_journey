@@ -1,16 +1,55 @@
 <?php
 session_start();
 
+// Fonction pour mettre à jour le nom de l’utilisateur dans le CSV
+function updateUserInCSV($email, $newName) {
+    // Chemin absolu vers le fichier CSV
+    $csvFile  = __DIR__ . '/utilisateurs.csv';
+    $tempFile = tempnam(sys_get_temp_dir(), 'tmp_csv_');
+    $updated  = false;
+
+    // Ouvre à la fois le CSV en lecture et le fichier temporaire en écriture
+    if (($in  = fopen($csvFile, 'r')) !== false
+     && ($out = fopen($tempFile, 'w')) !== false) {
+        
+        // Parcourt chaque ligne
+        while (($data = fgetcsv($in)) !== false) {
+            // Si l’email matche, on change le nom
+            if (isset($data[1]) && trim($data[1]) === $email) {
+                $data[0]    = $newName;
+                $updated    = true;
+            }
+            // On écrit la ligne (modifiée ou pas) dans le fichier temporaire
+            fputcsv($out, $data);
+        }
+
+        fclose($in);
+        fclose($out);
+
+        // Si on a fait au moins une modif, on remplace l’ancien CSV
+        if ($updated) {
+            rename($tempFile, $csvFile);
+        } else {
+            // sinon on supprime le fichier temporaire
+            unlink($tempFile);
+        }
+    }
+}
+
+
 // Function to get the reservation image based on the destination
-function getReservationImage($destination)
-{
+function getReservationImage($destination) {
     $images = [
+        'Mauritanie' => 'images/mauritanie.jpg',
+        'Algérie' => 'images/algerie.jpg',
+        'Maroc' => 'images/maroc.jpg',
+        'Tunisie' => 'images/tunisie.jpg',
+        'Égypte' => 'images/egypte.jpg',
         'Sahara' => 'images/sahara.jpg',
         'Atlas' => 'images/atlas.jpg',
-        'Merzouga' => 'images/merzouga.jpg',
-        // Add more destinations and their corresponding images here
+        'Merzouga' => 'images/merzouga.jpg'
     ];
-    return $images[$destination] ?? 'images/default.jpg'; // Default image if destination not found
+    return $images[$destination] ?? 'images/default.jpg';
 }
 
 // Vérifie si l'utilisateur est connecté
@@ -19,17 +58,47 @@ if (!isset($_SESSION['user'])) {
     exit();
 }
 
+// Traitement du formulaire de mise à jour du profil
+if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['edit_profile'])) {
+    // Récupération des données du formulaire
+    $nom = trim($_POST['nom']);
+    $email = trim($_POST['email']);
+
+    // Validation des données
+    $errors = [];
+    if (empty($nom)) {
+        $errors[] = "Le nom est requis.";
+    }
+    if (empty($email) || !filter_var($email, FILTER_VALIDATE_EMAIL)) {
+        $errors[] = "Une adresse email valide est requise.";
+    }
+
+    // Si aucune erreur, mise à jour des données de l'utilisateur
+    if (empty($errors)) {
+        // Met à jour le nom dans le fichier CSV
+        updateUserInCSV($user['email'], $nom);
+        
+        // Met à jour la session
+        $_SESSION['user']['nom'] = $nom;
+        $_SESSION['user']['email'] = $email;
+
+        // Redirection pour éviter la resoumission du formulaire
+        header('Location: profil.php?success=Profil mis à jour avec succès');
+        exit();
+    }
+}
+
 $user = $_SESSION['user'];
 $reservations = [];
+$reservationsEnCours = isset($_SESSION['reservation']) ? $_SESSION['reservation'] : null;
 
-// Lecture des réservations depuis le fichier CSV
+// Lecture des réservations confirmées depuis le fichier CSV
 $csv_file = 'reservations.csv';
 if (file_exists($csv_file)) {
     $file = fopen($csv_file, 'r');
-    fgetcsv($file); // Ignore la première ligne (en-tête)
     while (($data = fgetcsv($file)) !== false) {
-        // Structure des données : [destination, type, date_depart, mode, nb_personnes, email]
-        if (isset($data[5]) && $data[5] === $user['email']) { // Filtre par email de l'utilisateur connecté
+        // Structure des données : [destination, type, date_depart, mode, nb_personnes, email, status]
+        if (count($data) >= 6 && $data[5] === $user['email'] && (!isset($data[6]) || $data[6] === 'confirmed')) {
             $reservations[] = [
                 'destination' => $data[0],
                 'type' => $data[1],
@@ -41,245 +110,33 @@ if (file_exists($csv_file)) {
     }
     fclose($file);
 }
-?>
 
+// Gestion de l'annulation d'une réservation en cours
+if (isset($_GET['cancel']) && $_GET['cancel'] == 1 && isset($_SESSION['reservation'])) {
+    unset($_SESSION['reservation']);
+    $reservationsEnCours = null;
+    header('Location: profil.php');
+    exit();
+}
+
+// Affichage du message de succès après paiement
+$paymentSuccess = isset($_GET['payment']) && $_GET['payment'] === 'success';
+?>
 <!DOCTYPE html>
 <html lang="fr">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Mon Profil | Rajjel Agency</title>
     <link rel="stylesheet" href="aventure.css">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-    <style>
-        /* Ajouts stylistiques pour améliorer le design */
-        .profile-hero {
-            background: linear-gradient(135deg, #E67E22 0%, #D35400 100%);
-            padding: 5rem 0;
-            text-align: center;
-            color: white;
-            margin-bottom: 3rem;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-        }
-
-        .hero-content h1 {
-            font-size: 2.5rem;
-            margin-bottom: 1rem;
-            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.2);
-        }
-
-        .profile-layout {
-            display: flex;
-            gap: 2rem;
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-
-        .profile-sidebar {
-            flex: 0 0 280px;
-            background: white;
-            border-radius: 10px;
-            padding: 2rem;
-            box-shadow: 0 2px 15px rgba(0, 0, 0, 0.08);
-            height: fit-content;
-            position: sticky;
-            top: 2rem;
-        }
-
-        .profile-avatar {
-            width: 150px;
-            height: 150px;
-            border-radius: 50%;
-            object-fit: cover;
-            margin: 0 auto 1.5rem;
-            display: block;
-            border: 4px solid #E67E22;
-        }
-
-        .profile-nav {
-            display: flex;
-            flex-direction: column;
-            gap: 0.5rem;
-            margin-top: 2rem;
-        }
-
-        .profile-nav a {
-            padding: 0.8rem 1rem;
-            border-radius: 6px;
-            color: #333;
-            text-decoration: none;
-            transition: all 0.3s ease;
-            font-weight: 500;
-        }
-
-        .profile-nav a:hover,
-        .profile-nav a.active {
-            background-color: #F5F5F5;
-            color: #E67E22;
-        }
-
-        .profile-nav a.active {
-            font-weight: 600;
-            border-left: 3px solid #E67E22;
-        }
-
-        .profile-reservations {
-            flex: 1;
-        }
-
-        .section-title {
-            font-size: 1.8rem;
-            color: #333;
-            margin-bottom: 0.5rem;
-            position: relative;
-            padding-bottom: 0.5rem;
-        }
-
-        .section-title::after {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            width: 60px;
-            height: 3px;
-            background: #E67E22;
-        }
-
-        .section-subtitle {
-            color: #666;
-            margin-bottom: 2rem;
-            font-size: 1rem;
-        }
-
-        .reservations-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
-            gap: 1.5rem;
-        }
-
-        .reservation-card {
-            background: white;
-            border-radius: 10px;
-            overflow: hidden;
-            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.08);
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-        }
-
-        .reservation-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
-        }
-
-        .reservation-image {
-            width: 100%;
-            height: 200px;
-            object-fit: cover;
-        }
-
-        .reservation-details {
-            padding: 1.5rem;
-        }
-
-        .reservation-details h3 {
-            margin: 0 0 1rem;
-            color: #333;
-            font-size: 1.3rem;
-        }
-
-        .trek-meta {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 1rem;
-            margin-bottom: 1rem;
-            align-items: center;
-        }
-
-        .trek-meta span {
-            display: flex;
-            align-items: center;
-            gap: 0.3rem;
-            color: #555;
-            font-size: 0.9rem;
-        }
-
-        .reservation-status {
-            padding: 0.3rem 0.8rem;
-            border-radius: 20px;
-            font-size: 0.8rem;
-            font-weight: 600;
-        }
-
-        .status-confirmed {
-            background-color: #E1F5E1;
-            color: #2E7D32;
-        }
-
-        .no-reservations {
-            text-align: center;
-            padding: 3rem;
-            background: white;
-            border-radius: 10px;
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
-        }
-
-        .no-reservations p {
-            margin-bottom: 1.5rem;
-            color: #666;
-            font-size: 1.1rem;
-        }
-
-        .btn {
-            display: inline-block;
-            padding: 0.8rem 1.5rem;
-            background: #E67E22;
-            color: white;
-            border-radius: 6px;
-            text-decoration: none;
-            font-weight: 500;
-            transition: all 0.3s ease;
-            border: none;
-            cursor: pointer;
-        }
-
-        .btn:hover {
-            background: #D35400;
-            transform: translateY(-2px);
-        }
-
-        .btn-edit {
-            background: white;
-            color: #E67E22;
-            border: 1px solid #E67E22;
-            margin-top: 1rem;
-        }
-
-        .btn-edit:hover {
-            background: #E67E22;
-            color: white;
-        }
-
-        @media (max-width: 768px) {
-            .profile-layout {
-                flex-direction: column;
-            }
-
-            .profile-sidebar {
-                position: static;
-                margin-bottom: 2rem;
-            }
-
-            .reservations-grid {
-                grid-template-columns: 1fr;
-            }
-        }
-    </style>
+    <link rel="stylesheet" href="profil.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    
 </head>
-
 <body>
     <script src="theme.js"></script>
-
+    <!-- Navigation -->
     <nav class="navbar">
         <div class="container">
             <a href="acceuil1.php" class="logo">
@@ -289,9 +146,16 @@ if (file_exists($csv_file)) {
                 <li><a href="acceuil1.php">Accueil</a></li>
                 <li><a href="aventure.php">Nos Treks</a></li>
                 <li><a href="presentation.php">Présentation</a></li>
+                <!-- Thème & Police -->
                 <li><button id="theme-toggle" class="btn-nav">🎨 Thème</button></li>
-                <li><a href="contact.php">Contact</a></li>
-                <li><a href="profil.php" class="btn-nav active"><i class="fas fa-user"></i> Mon Compte</a></li>
+                <li>
+                    <select id="font-size-selector" class="btn-nav">
+                        <option value="normal">Aa</option>
+                        <option value="medium">Aa+</option>
+                        <option value="large">Aa++</option>
+                    </select>
+                </li>
+                <li><a href="profil.php" class="btn-nav active">Mon Compte</a></li>
             </ul>
         </div>
     </nav>
@@ -304,8 +168,7 @@ if (file_exists($csv_file)) {
     </header>
 
     <main class="main-content">
-        <div class="container profile-layout">
-            <!-- Barre latérale -->
+        <div class="container profile-container">
             <aside class="profile-sidebar">
                 <img src="https://ui-avatars.com/api/?name=<?= urlencode($user['nom']) ?>&background=E67E22&color=fff&size=150"
                     alt="Avatar" class="profile-avatar">
@@ -313,44 +176,110 @@ if (file_exists($csv_file)) {
                 <p><?= htmlspecialchars($user['email']) ?></p>
 
                 <nav class="profile-nav">
-                    <a href="profil.php" class="active"><i class="fas fa-calendar-alt"></i> Mes Réservations</a>
-                    <a href="profil-edit.php"><i class="fas fa-user-edit"></i> Modifier mon profil</a>
-                    <a href="profil-password.php"><i class="fas fa-lock"></i> Changer mon mot de passe</a>
-                    <a href="deco.php"><i class="fas fa-sign-out-alt"></i> Déconnexion</a>
+                    <a href="profil.php" class="active">Mes Réservations</a>
+                    <button id="toggle-edit-btn" class="btn-edit-profile">Modifier mon profil</button>
+                    <a href="profil-password.php">Changer mon mot de passe</a>
+                    <a href="deco.php">Déconnexion</a>
                 </nav>
             </aside>
 
-            <!-- Contenu des réservations -->
-            <section class="profile-reservations">
-                <h2 class="section-title">Mes Réservations</h2>
-                <p class="section-subtitle">Retrouvez ici toutes vos aventures à venir et passées</p>
+            <section class="profile-edit-section" id="profile-edit-section" style="display: none;">
+                <h2 class="section-title">Modifier mon Profil</h2>
+                
+                <?php if (!empty($errors)): ?>
+                    <div class="alert-error">
+                        <ul>
+                            <?php foreach ($errors as $error): ?>
+                                <li><i class="fas fa-exclamation-circle"></i> <?= htmlspecialchars($error) ?></li>
+                            <?php endforeach; ?>
+                        </ul>
+                    </div>
+                <?php endif; ?>
 
-                <?php if (!empty($user_reservations)): ?>
+                <form method="POST" action="profil.php">
+                    <div class="form-group">
+                        <label for="nom">Nom :</label>
+                        <input type="text" id="nom" name="nom" value="<?= htmlspecialchars($user['nom']) ?>" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email :</label>
+                        <input type="email" id="email" name="email" value="<?= htmlspecialchars($user['email']) ?>" required>
+                    </div>
+                    <div class="form-actions">
+                        <button type="submit" name="edit_profile" class="btn btn-save">Enregistrer</button>
+                        <button type="button" id="cancel-edit-btn" class="btn btn-cancel">Annuler</button>
+                    </div>
+                </form>
+            </section>
+
+            <section class="profile-reservations">
+                <?php if ($paymentSuccess): ?>
+                    <div class="alert-success">
+                        <i class="fas fa-check-circle"></i> Votre paiement a été confirmé avec succès !
+                    </div>
+                <?php endif; ?>
+
+                <?php if (isset($_GET['success'])): ?>
+                    <div class="alert-success">
+                        <i class="fas fa-check-circle"></i> <?= htmlspecialchars($_GET['success']) ?>
+                    </div>
+                <?php endif; ?>
+
+                <h2 class="section-title">Mes Réservations</h2>
+                <p class="section-subtitle">Retrouvez ici toutes vos aventures confirmées</p>
+
+                <?php if (!empty($reservations)): ?>
                     <div class="reservations-grid">
-                        <?php foreach ($user_reservations as $reservation): ?>
+                        <?php foreach ($reservations as $reservation): ?>
                             <div class="reservation-card">
-                                <img src="<?= getReservationImage($reservation['destination']) ?>" alt="<?= htmlspecialchars($reservation['destination']) ?>" class="reservation-image">
+                                <img src="<?= getReservationImage($reservation['destination']) ?>" 
+                                     alt="<?= htmlspecialchars($reservation['destination']) ?>" 
+                                     class="reservation-image">
                                 <div class="reservation-details">
                                     <h3>Trek <?= htmlspecialchars($reservation['destination']) ?></h3>
                                     <div class="trek-meta">
                                         <span><i class="far fa-calendar-alt"></i> <?= date('d/m/Y', strtotime($reservation['date_depart'])) ?></span>
                                         <span><i class="fas fa-users"></i> <?= $reservation['nb_personnes'] ?> personne(s)</span>
-                                        <span class="reservation-status status-confirmed"><i class="fas fa-check-circle"></i> Confirmée</span>
                                     </div>
-                                    <p><strong>Type :</strong> <?= htmlspecialchars($reservation['type']) ?> | <strong>Mode :</strong> <?= htmlspecialchars($reservation['mode']) ?></p>
-                                    <a href="#" class="btn btn-edit"><i class="fas fa-info-circle"></i> Voir les détails</a>
+                                    <p><strong>Type :</strong> <?= htmlspecialchars($reservation['type']) ?> | 
+                                       <strong>Mode :</strong> <?= htmlspecialchars($reservation['mode']) ?></p>
+                                    <a href="#" class="btn btn-edit">Voir les détails</a>
                                 </div>
                             </div>
                         <?php endforeach; ?>
                     </div>
                 <?php else: ?>
                     <div class="no-reservations">
-                        <p>Vous n'avez aucune réservation pour le moment.</p>
-                        <a href="aventure.php" class="btn"><i class="fas fa-route"></i> Découvrir nos treks</a>
+                        <p>Vous n'avez aucune réservation confirmée pour le moment.</p>
+                        <a href="aventure.php" class="btn btn-edit">Découvrir nos treks</a>
                     </div>
                 <?php endif; ?>
             </section>
         </div>
+
+        <!-- Section Panier -->
+        <section class="cart-section">
+            <h2 class="cart-title">Mon Panier</h2>
+            <div id="cart">
+                <?php if ($reservationsEnCours): ?>
+                    <div class="cart-item">
+                        <div>
+                            <h4><?= htmlspecialchars($reservationsEnCours['destination']) ?></h4>
+                            <p><strong>Type :</strong> <?= htmlspecialchars($reservationsEnCours['type_trek']) ?></p>
+                            <p><strong>Date de départ :</strong> <?= htmlspecialchars($reservationsEnCours['date_depart']) ?></p>
+                            <p><strong>Nombre de personnes :</strong> <?= htmlspecialchars($reservationsEnCours['nb_personnes']) ?></p>
+                        </div>
+                        <div class="cart-actions">
+                            <a href="recap-reservation.php" class="btn btn-confirm">Finaliser la réservation</a>
+                            <a href="profil.php?cancel=1" class="btn btn-cancel">Annuler</a>
+                        </div>
+                    </div>
+                <?php else: ?>
+                    <p>Votre panier est vide.</p>
+                    <a href="aventure.php" class="btn btn-edit">Découvrir nos treks</a>
+                <?php endif; ?>
+            </div>
+        </section>
     </main>
 
     <footer class="footer">
@@ -371,19 +300,42 @@ if (file_exists($csv_file)) {
                 </div>
                 <div class="footer-col">
                     <h4>Contact</h4>
-                    <p><i class="fas fa-envelope"></i> contact@rajjel-agency.com<br><i class="fas fa-phone"></i> +33 1 23 45 67 89</p>
+                    <p>contact@rajjel-agency.com<br>+33 1 23 45 67 89</p>
                     <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
                         <a href="#"><i class="fab fa-instagram"></i></a>
-                        <a href="#"><i class="fab fa-facebook"></i></a>
                         <a href="#"><i class="fab fa-twitter"></i></a>
                     </div>
                 </div>
             </div>
             <div class="footer-bottom">
                 <p>&copy; <?= date('Y') ?> Rajjel Agency. Tous droits réservés.</p>
+                <?php if (isset($_SESSION['user']) && $_SESSION['user']['role'] === 'admin'): ?>
+                    <a href="admin.php" class="admin-link">Accès admin</a>
+                <?php endif; ?>
             </div>
         </div>
     </footer>
-</body>
 
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const toggleEditBtn = document.getElementById('toggle-edit-btn');
+            const cancelEditBtn = document.getElementById('cancel-edit-btn');
+            const editSection = document.getElementById('profile-edit-section');
+            
+            toggleEditBtn.addEventListener('click', function() {
+                editSection.style.display = editSection.style.display === 'none' ? 'block' : 'none';
+            });
+            
+            cancelEditBtn.addEventListener('click', function() {
+                editSection.style.display = 'none';
+            });
+            
+            // Afficher la section d'édition s'il y a des erreurs
+            <?php if (!empty($errors)): ?>
+                editSection.style.display = 'block';
+            <?php endif; ?>
+        });
+    </script>
+</body>
 </html>
