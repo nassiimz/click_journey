@@ -178,7 +178,6 @@ $paymentSuccess = isset($_GET['payment']) && $_GET['payment'] === 'success';
                 <nav class="profile-nav">
                     <a href="profil.php" class="active">Mes Réservations</a>
                     <button id="toggle-edit-btn" class="btn-edit-profile">Modifier mon profil</button>
-                    <a href="profil-password.php">Changer mon mot de passe</a>
                     <a href="deco.php">Déconnexion</a>
                 </nav>
             </aside>
