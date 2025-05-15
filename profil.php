@@ -1,39 +1,37 @@
 <?php
 session_start();
 
-// Fonction pour mettre à jour le nom de l’utilisateur dans le CSV
-function updateUserInCSV($email, $newName) {
-    // Chemin absolu vers le fichier CSV
-    $csvFile  = __DIR__ . '/utilisateurs.csv';
-    $tempFile = tempnam(sys_get_temp_dir(), 'tmp_csv_');
-    $updated  = false;
 
-    // Ouvre à la fois le CSV en lecture et le fichier temporaire en écriture
-    if (($in  = fopen($csvFile, 'r')) !== false
-     && ($out = fopen($tempFile, 'w')) !== false) {
-        
-        // Parcourt chaque ligne
-        while (($data = fgetcsv($in)) !== false) {
-            // Si l’email matche, on change le nom
-            if (isset($data[1]) && trim($data[1]) === $email) {
-                $data[0]    = $newName;
-                $updated    = true;
+// Fonction pour mettre à jour le nom de l'utilisateur dans le CSV
+function updateUserInCSV($oldEmail, $newName, $newEmail) {
+    $csvFile = 'utilisateurs.csv';
+    $tempFile = tempnam(sys_get_temp_dir(), 'tmp');
+    $updated = false;
+
+    if (($handle = fopen($csvFile, 'r')) !== false) {
+        if (($tempHandle = fopen($tempFile, 'w')) !== false) {
+            while (($data = fgetcsv($handle)) !== false) {
+                // Si l'email matche, on met à jour les données
+                if (isset($data[1]) && trim($data[1]) === $oldEmail) {
+                    $data[0] = $newName;
+                    $data[1] = $newEmail;
+                    $updated = true;
+                }
+                fputcsv($tempHandle, $data);
             }
-            // On écrit la ligne (modifiée ou pas) dans le fichier temporaire
-            fputcsv($out, $data);
+            fclose($tempHandle);
         }
+        fclose($handle);
 
-        fclose($in);
-        fclose($out);
-
-        // Si on a fait au moins une modif, on remplace l’ancien CSV
         if ($updated) {
             rename($tempFile, $csvFile);
+            return true;
         } else {
-            // sinon on supprime le fichier temporaire
             unlink($tempFile);
+            return false;
         }
     }
+    return false;
 }
 
 
@@ -63,6 +61,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['edit_profile'])) {
     // Récupération des données du formulaire
     $nom = trim($_POST['nom']);
     $email = trim($_POST['email']);
+    $oldEmail = $_SESSION['user']['email'];
 
     // Validation des données
     $errors = [];
@@ -73,18 +72,17 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['edit_profile'])) {
         $errors[] = "Une adresse email valide est requise.";
     }
 
-    // Si aucune erreur, mise à jour des données de l'utilisateur
+    // Si aucune erreur, mise à jour des données
     if (empty($errors)) {
-        // Met à jour le nom dans le fichier CSV
-        updateUserInCSV($user['email'], $nom);
-        
-        // Met à jour la session
-        $_SESSION['user']['nom'] = $nom;
-        $_SESSION['user']['email'] = $email;
-
-        // Redirection pour éviter la resoumission du formulaire
-        header('Location: profil.php?success=Profil mis à jour avec succès');
-        exit();
+        if (updateUserInCSV($oldEmail, $nom, $email)) {
+            // Met à jour la session
+            $_SESSION['user']['nom'] = $nom;
+            $_SESSION['user']['email'] = $email;
+            
+            
+        }  else {
+        echo "error:" . implode(", ", $errors);
+        exit();}
     }
 }
 
