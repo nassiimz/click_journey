@@ -1,0 +1,36 @@
+Bloc paiement atteint
+Array
+(
+    [destination] => Mali
+    [type_trek] => luxe
+    [date_depart] => 2025-06-07
+    [billet_avion] => avec_agence
+    [nb_personnes] => 6
+)
+Bloc paiement atteint
+Array
+(
+    [destination] => Tunisie
+    [type_trek] => standard
+    [date_depart] => 2025-06-19
+    [billet_avion] => avec_agence
+    [nb_personnes] => 9
+)
+Bloc paiement atteint
+Array
+(
+    [destination] => Égypte
+    [type_trek] => premium
+    [date_depart] => 2025-06-18
+    [billet_avion] => avec_agence
+    [nb_personnes] => 7
+)
+Bloc paiement atteint
+Array
+(
+    [destination] => Soudan
+    [type_trek] => standard
+    [date_depart] => 2025-06-20
+    [billet_avion] => avec_agence
+    [nb_personnes] => 6
+)
