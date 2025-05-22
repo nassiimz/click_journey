@@ -332,7 +332,7 @@ $total = ($prix_trek + $prix_avion) * $reservation['nb_personnes'];
                     $vendeur = "MI-5_G";
                     $api_key = getAPIKey($vendeur);
 
-                    $retour_url = 'http://' . $_SERVER['HTTP_HOST'] . '/click_journey-projetNassim/recap-reservation.php?payment=success';
+                    $retour_url = 'http://' . $_SERVER['HTTP_HOST'] . '/click_journey-projetNassimFinal/recap-reservation.php?payment=success';
                     $control = md5($api_key . "#" . $transaction_id . "#" . $total . "#" . $vendeur . "#" . $retour_url . "#");
                     ?>
                     <input type="hidden" name="transaction" value="<?= $transaction_id ?>">
