@@ -3,7 +3,7 @@ session_start();
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $_SESSION['reservation'] = [
-        'destination' => 'Mali',
+        'destination' => 'Algérie',
         'type_trek' => $_POST['type_trek'],
         'date_depart' => $_POST['date_depart'],
         'billet_avion' => $_POST['billet_avion'],

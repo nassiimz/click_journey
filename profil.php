@@ -88,31 +88,27 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['edit_profile'])) {
 $user = $_SESSION['user'];
 $reservationsEnCours = isset($_SESSION['reservation']) ? $_SESSION['reservation'] : null;
 
-// Lecture des réservations confirmées depuis le fichier JSON
-$jsonFile = __DIR__ . '/reservations.json';
+// Lecture des réservations confirmées depuis le fichier CSV
 $reservations = [];
-
-if (file_exists($jsonFile)) {
-    $fileContent = file_get_contents($jsonFile);
-    if (!empty($fileContent)) {
-        $allReservations = json_decode($fileContent, true);
-        if (is_array($allReservations)) {
-            foreach ($allReservations as $data) {
-                if (
-                    isset($data['email']) && $data['email'] === $user['email'] &&
-                    (!isset($data['statut']) || $data['statut'] === 'confirmed')
-                ) {
-                    $reservations[] = [
-                        'destination' => $data['destination'],
-                        'type' => $data['type_trek'],
-                        'date_depart' => $data['date_depart'],
-                        'mode' => $data['billet_avion'],
-                        'nb_personnes' => $data['nb_personnes'],
-                        'date_reservation' => isset($data['date_reservation']) ? $data['date_reservation'] : 'Date inconnue'
-                    ];
-                }
+if (file_exists('reservations.csv')) {
+    if (($handle = fopen('reservations.csv', 'r')) !== false) {
+        $header = fgetcsv($handle); // Ignore la première ligne
+        while (($data = fgetcsv($handle)) !== false) {
+            if (
+                isset($data[5]) && $data[5] === $user['email'] &&
+                isset($data[6]) && $data[6] === 'confirmed'
+            ) {
+                $reservations[] = [
+                    'destination' => $data[0],
+                    'type' => $data[1],
+                    'date_depart' => $data[2],
+                    'mode' => $data[3],
+                    'nb_personnes' => $data[4],
+                    'date_reservation' => isset($data[7]) ? $data[7] : 'Date inconnue'
+                ];
             }
         }
+        fclose($handle);
     }
 }
 

@@ -12,7 +12,6 @@ if (!isset($_SESSION['reservation'])) {
 }
 
 // Traitement après paiement réussi
-// Traitement après paiement réussi
 if (isset($_GET['payment']) && $_GET['payment'] === 'success') {
     $reservation = $_SESSION['reservation'];
     if (!isset($_SESSION['user']['email'])) {
@@ -27,12 +26,13 @@ if (isset($_GET['payment']) && $_GET['payment'] === 'success') {
         $reservation['billet_avion'],
         $reservation['nb_personnes'],
         $_SESSION['user']['email'],
-        'confirmed' // Ajout du statut
+        'confirmed',
+        date('Y-m-d H:i:s') // Ajoute la date ici
     ];
 
     // Créer le fichier s'il n'existe pas
     if (!file_exists('reservations.csv')) {
-        file_put_contents('reservations.csv', "Destination,Type,Date Départ,Billet Avion,Nb Personnes,Email,Statut\n");
+        file_put_contents('reservations.csv', "Destination,Type,Date Départ,Billet Avion,Nb Personnes,Email,Statut,Date Réservation\n");
     }
 
     $file = fopen('reservations.csv', 'a');
